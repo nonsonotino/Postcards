@@ -12,8 +12,8 @@
 -- Database Section
 -- ________________ 
 
-create database Schema reificato;
-use Schema reificato;
+create database Postcards;
+use Postcards;
 
 
 -- Tables Section
@@ -87,3 +87,32 @@ alter table FRIENDSHIP add constraint FKreceive
 -- Index Section
 -- _____________ 
 
+create unique index ID_COMMENT_IND
+     on COMMENT (idComment);
+
+create index REF_COMME_USER_IND
+     on COMMENT (username);
+
+create index REF_COMME_POSTC_IND
+     on COMMENT (idPostCard);
+
+create unique index ID_NOTIFICATION_IND
+     on NOTIFICATION (idNotification);
+
+create index REF_NOTIF_USER_IND
+     on NOTIFICATION (username);
+
+create unique index ID_POSTCARD_IND
+     on POSTCARD (idPostCard);
+
+create index REF_POSTC_USER_IND
+     on POSTCARD (username);
+
+create unique index ID_FRIENDSHIP_IND
+     on FRIENDSHIP (usernameSender, usernameReceiver);
+
+create index REF_FRIEN_USER_IND
+     on FRIENDSHIP (usernameReceiver);
+
+create unique index ID_USER_IND
+     on USER (username);
