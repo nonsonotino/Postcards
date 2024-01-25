@@ -1,7 +1,7 @@
 <?php
 date_default_timezone_set('Europe/Rome');
 function printDate() {
-  echo get_date(D d, M Y); 
+  echo date("D d, M Y"); 
 }
 ?>
 
@@ -14,7 +14,7 @@ function printDate() {
 </head>
 
 <header>
-  <p><?php get_date() ?> </p>
+  <p><?php printDate() ?> </p>
 </header>
 
 <body>
