@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'DM Sans'
+}
+
+body {
+    background-color: #19426D;
+    color: #F6E7DE;
+}
+
+.title {
+    font-family: 'DM Serif Display', serif;
+    font-weight: normal;
+}
+
+.catchphrase {
+    font-family: 'Grape Nuts', serif;
+    font-weight: normal;
+}
+
+.textbox{
+    background-color: #19426D;
+    border: 2px solid #F6E7DE;
+    border-radius: 10px;
+    height: 45;
+    
+}
+
+.signup_link {
+    color: #62B2DD;
+}
