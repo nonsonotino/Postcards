@@ -5,39 +5,39 @@ use postcards;
 -- _____________ 
 
 create table USER (
-     username varchar(20) not null,
+     username char(20) not null,
      email varchar(200) not null,
      password varchar(30) not null,
-     profilePicture varchar(200),
+     profilePicture varchar(200) DEFAULT 'profile_default.jpg',
      constraint IDUSER primary key (username));
 
 create table POSTCARD (
      idPostCard int not null AUTO_INCREMENT,
-     timeStamp date not null,
+     timeStamp date not null DEFAULT CURRENT_TIMESTAMP,
      location varchar(60) not null,
      image varchar(200) not null,
      caption varchar(200) not null,
-     username varchar(20) not null,
+     username char(20) not null,
      constraint IDPOSTCARD primary key (idPostCard));
 
 create table COMMENT (
      idComment int not null AUTO_INCREMENT,
      text varchar(100) not null,
-     timeStamp date not null,
-     username varchar(20) not null,
+     timeStamp date not null default CURRENT_TIMESTAMP,
+     username char(20) not null,
      idPostCard int not null,
      constraint IDCOMMENT primary key (idComment));
 
 create table NOTIFICATION (
      idNotification int not null AUTO_INCREMENT,
-     timeStamp date not null,
+     timeStamp date not null default CURRENT_TIMESTAMP,
      type int not null,
-     username varchar(20) not null,
+     username char(20) not null,
      constraint IDNOTIFICATION primary key (idNotification));
 
 create table FRIENDSHIP (
-     usernameReceiver varchar(20) not null,
-     usernameSender varchar(20) not null,
+     usernameReceiver char(20) not null,
+     usernameSender char(20) not null,
      constraint IDFRIENDSHIP primary key (usernameSender, usernameReceiver));
 
 -- Constraints Section
