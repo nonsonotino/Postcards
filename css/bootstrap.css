@@ -24,6 +24,7 @@
   --bs-light-blue: #62B2DD;
   --bs-primary: #19426D;
   --bs-secondary: #F6E7DE;
+  --bs-tertiary: #62B2DD;
   --bs-success: #198754;
   --bs-info: #0dcaf0;
   --bs-warning: #ffc107;
@@ -2961,6 +2962,36 @@ textarea.form-control-lg {
   border-color: #F6E7DE;
 }
 
+.btn-tertiary {
+  color: #000;
+  background-color: #62B2DD;
+  border-color: #62B2DD;
+}
+.btn-tertiary:hover {
+  color: #000;
+  background-color: #7abee2;
+  border-color: #72bae0;
+}
+.btn-check:focus + .btn-tertiary, .btn-tertiary:focus {
+  color: #000;
+  background-color: #7abee2;
+  border-color: #72bae0;
+  box-shadow: 0 0 0 0.25rem rgba(83, 151, 188, 0.5);
+}
+.btn-check:checked + .btn-tertiary, .btn-check:active + .btn-tertiary, .btn-tertiary:active, .btn-tertiary.active, .show > .btn-tertiary.dropdown-toggle {
+  color: #000;
+  background-color: #81c1e4;
+  border-color: #72bae0;
+}
+.btn-check:checked + .btn-tertiary:focus, .btn-check:active + .btn-tertiary:focus, .btn-tertiary:active:focus, .btn-tertiary.active:focus, .show > .btn-tertiary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.25rem rgba(83, 151, 188, 0.5);
+}
+.btn-tertiary:disabled, .btn-tertiary.disabled {
+  color: #000;
+  background-color: #62B2DD;
+  border-color: #62B2DD;
+}
+
 .btn-success {
   color: #fff;
   background-color: #198754;
@@ -3188,6 +3219,31 @@ textarea.form-control-lg {
 }
 .btn-outline-secondary:disabled, .btn-outline-secondary.disabled {
   color: #F6E7DE;
+  background-color: transparent;
+}
+
+.btn-outline-tertiary {
+  color: #62B2DD;
+  border-color: #62B2DD;
+}
+.btn-outline-tertiary:hover {
+  color: #000;
+  background-color: #62B2DD;
+  border-color: #62B2DD;
+}
+.btn-check:focus + .btn-outline-tertiary, .btn-outline-tertiary:focus {
+  box-shadow: 0 0 0 0.25rem rgba(98, 178, 221, 0.5);
+}
+.btn-check:checked + .btn-outline-tertiary, .btn-check:active + .btn-outline-tertiary, .btn-outline-tertiary:active, .btn-outline-tertiary.active, .btn-outline-tertiary.dropdown-toggle.show {
+  color: #000;
+  background-color: #62B2DD;
+  border-color: #62B2DD;
+}
+.btn-check:checked + .btn-outline-tertiary:focus, .btn-check:active + .btn-outline-tertiary:focus, .btn-outline-tertiary:active:focus, .btn-outline-tertiary.active:focus, .btn-outline-tertiary.dropdown-toggle.show:focus {
+  box-shadow: 0 0 0 0.25rem rgba(98, 178, 221, 0.5);
+}
+.btn-outline-tertiary:disabled, .btn-outline-tertiary.disabled {
+  color: #62B2DD;
   background-color: transparent;
 }
 
@@ -4653,6 +4709,15 @@ textarea.form-control-lg {
   color: #4e4a47;
 }
 
+.alert-tertiary {
+  color: #3b6b85;
+  background-color: #e0f0f8;
+  border-color: #d0e8f5;
+}
+.alert-tertiary .alert-link {
+  color: #2f566a;
+}
+
 .alert-success {
   color: #0f5132;
   background-color: #d1e7dd;
@@ -5000,6 +5065,20 @@ textarea.form-control-lg {
   color: #fff;
   background-color: #625c59;
   border-color: #625c59;
+}
+
+.list-group-item-tertiary {
+  color: #3b6b85;
+  background-color: #e0f0f8;
+}
+.list-group-item-tertiary.list-group-item-action:hover, .list-group-item-tertiary.list-group-item-action:focus {
+  color: #3b6b85;
+  background-color: #cad8df;
+}
+.list-group-item-tertiary.list-group-item-action.active {
+  color: #fff;
+  background-color: #3b6b85;
+  border-color: #3b6b85;
 }
 
 .list-group-item-success {
@@ -6038,6 +6117,13 @@ textarea.form-control-lg {
   color: #f8ece5;
 }
 
+.link-tertiary {
+  color: #62B2DD;
+}
+.link-tertiary:hover, .link-tertiary:focus {
+  color: #81c1e4;
+}
+
 .link-success {
   color: #198754;
 }
@@ -6433,6 +6519,10 @@ textarea.form-control-lg {
 
 .border-secondary {
   border-color: #F6E7DE !important;
+}
+
+.border-tertiary {
+  border-color: #62B2DD !important;
 }
 
 .border-success {
@@ -7264,6 +7354,10 @@ textarea.form-control-lg {
   color: #F6E7DE !important;
 }
 
+.text-tertiary {
+  color: #62B2DD !important;
+}
+
 .text-success {
   color: #198754 !important;
 }
@@ -7318,6 +7412,10 @@ textarea.form-control-lg {
 
 .bg-secondary {
   background-color: #F6E7DE !important;
+}
+
+.bg-tertiary {
+  background-color: #62B2DD !important;
 }
 
 .bg-success {
