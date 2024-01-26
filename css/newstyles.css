@@ -1,0 +1,23 @@
+.title {
+    font-family: 'DM Serif Display', serif;
+    margin-top: 25vh;
+    margin-bottom: 0;
+}
+
+.catchphrase {
+    font-family: 'Grape Nuts', serif;
+    margin-top: -10px;
+    margin-left: 10vh;
+}
+
+.textbox {
+    height: 45px;
+    width: 280px;
+    margin-top: 2vh;
+}
+
+.button {
+    height: 45px;
+    width: 100px;
+    margin-top: 2vh;
+}
