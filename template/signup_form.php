@@ -1,3 +1,4 @@
+<body>
 <form>
     <?php require("title_card.php"); ?>
     <div class="form-group">
@@ -14,3 +15,4 @@
     </div>
     <button type="submit" class="btn btn-primary">Send</button>
 </form>
+</body>
