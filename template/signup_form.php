@@ -1,4 +1,5 @@
 <form>
+    <?php require("title_card.php"); ?>
     <div class="form-group">
         <input type="username" class="form-control" id="username" placeholder="Username">
     </div>
