@@ -1,2 +1,2 @@
-<h1 class="title display-1 text-center">Postcards</h1>
-<h2 class="catchphrase display-3 text-center">Write your story.</h2>
+<h1 class="display-1 title text-center text-secondary">Postcards</h1>
+<h2 class="display-6 catchphrase text-center">Write your story.</h2>
