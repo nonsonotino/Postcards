@@ -12,19 +12,30 @@ body {
 .title {
     font-family: 'DM Serif Display', serif;
     font-weight: normal;
+    text-align: center;
 }
 
 .catchphrase {
     font-family: 'Grape Nuts', serif;
     font-weight: normal;
+    text-align: center;
 }
 
-.textbox{
+.textbox {
     background-color: #19426D;
     border: 2px solid #F6E7DE;
     border-radius: 10px;
-    height: 45;
-    
+    height: 45px;
+    color: #F6E7DE;
+    width: 50%;
+    margin: 1rem auto;
+    font-size: 16px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.textbox:focus {
+    outline: none;
 }
 
 .signup_link {
