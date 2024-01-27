@@ -1,13 +1,15 @@
+.titlecard {
+    margin-top: 25vh;
+}
 .title {
     font-family: 'DM Serif Display', serif;
-    margin-top: 25vh;
     margin-bottom: 0;
 }
 
 .catchphrase {
     font-family: 'Grape Nuts', serif;
     margin-top: -10px;
-    margin-left: 10vh;
+    margin-left: 20vh;
 }
 
 .textbox {
@@ -20,4 +22,8 @@
     height: 45px;
     width: 100px;
     margin-top: 2vh;
+}
+
+.fa-bell {
+    color: #F6E7DE;
 }
