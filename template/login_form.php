@@ -1,6 +1,6 @@
 <body class="bg-primary">
     <?php require("title_card.php"); ?>
-    <form class="container d-flex justify-content-center" action="#">
+    <form class="container d-flex justify-content-center" method="POST" action="login.php">
         <div class="">
             <div class="d-flex justify-content-center">
                 <input class="textbox border-secondary form-control border-2 bg-primary rounded-pill text-secondary"
