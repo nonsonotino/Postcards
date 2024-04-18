@@ -40,9 +40,6 @@ create table FRIENDSHIP (
      usernameSender char(20) not null,
      constraint IDFRIENDSHIP primary key (usernameSender, usernameReceiver));
 
-create user 'sec_user'@'localhost' identified by '62L5LaaWysx4';
-grant select, insert, update on 'postcards'.* to 'sec_user'@'localhost';
-
 -- Constraints Section
 -- ___________________ 
 

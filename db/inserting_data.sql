@@ -1,4 +1,4 @@
-INSERT INTO USER ('username', 'email', 'password', 'profilePicture')
+INSERT INTO USER (username, email, password, profilePicture)
 VALUES
     ('nonsonotino', 'matteosartini26@gmail.com','pw250124', 'profile_default.jpg'),
     ('JhonnyExplorer', 'john.doe@gmail.com', 'Pass1234567890Aa', 'profile_default.jpg'),
