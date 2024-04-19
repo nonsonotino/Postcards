@@ -1,5 +1,12 @@
 <body class="bg-primary">
     <?php require("title_card.php"); ?>
+    <?php
+    // Mostra il messaggio di errore se presente
+    if (isset($template_params["error_message"])) {
+        echo '<p style="color: red; text-align: center;">' . $template_params["error_message"] . '</p>';
+        // Rimuovi il messaggio di errore dalla sessione dopo averlo mostrato
+    }
+    ?>
     <form class="container d-flex justify-content-center" method="POST" action="login.php">
         <div class="">
             <div class="d-flex justify-content-center">
