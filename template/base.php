@@ -11,6 +11,7 @@
     <link href='https://fonts.googleapis.com/css?family=DM Serif Display' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
     <script src="https://kit.fontawesome.com/9a41f32a54.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <title>
         <?php echo $template_params["title"]; ?>
     </title>
