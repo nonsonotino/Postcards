@@ -52,3 +52,7 @@ form {
     left: 50%;
     transform: translateX(-50%);
 }
+
+.navbar {
+    height: 50%;
+}
