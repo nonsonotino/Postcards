@@ -10,16 +10,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $login_result = $dbh->checkLogin($username, $password);
     if (count($login_result) == 0) {
         //Login fallito
-        echo "login failed";
+        $template_params["error_message"] = "Wrong username or password. Please retry.";
+        $template_params["title"] = "Login";
+        $template_params["page"] = "template/login_form.php";
+        require_once("template/base.php");
     } else {
         registerLoggedUser($username, $password);
         // Reindirizza a home.php
         $template_params["title"] = "Home";
         $template_params["page"] = "template/home.php";
         require_once("template/base.php");
-        exit; // Assicura che il codice successivo non venga eseguito
+        exit;
+        // Assicura che il codice successivo non venga eseguito
     }
 }
+
 //     // Simulazione di credenziali corrette (sostituisci con la tua logica)
 //     if ($username === "nitritodisodio" && $password === "pass250124") {
 //         // Registra l'utente nella sessione
