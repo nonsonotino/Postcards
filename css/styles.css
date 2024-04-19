@@ -1,58 +1,35 @@
-* {
-    margin: 0;
-    padding: 0;
-    font-family: 'DM Sans';
-}
 
-body {
-    background-color: #19426D;
-    color: #F6E7DE;
+.titlecard {
+    margin-top: 25vh;
 }
 
 .title {
     font-family: 'DM Serif Display', serif;
-    font-weight: normal;
-    text-align: center;
-    margin-top: 4em;
+    margin-bottom: 0;
+}
+
+.date {
+    font-family: 'DM Serif Display', serif;
 }
 
 .catchphrase {
     font-family: 'Grape Nuts', serif;
-    font-weight: normal;
-    text-align: center;
-    font-size: 25px;
-    margin-top: -20px;
-    margin-left: 5em;
-}
-
-form {
-    margin-top: 10%;
-    padding: 2em 20%;
+    margin-top: -10px;
+    margin-left: 20vh;
 }
 
 .textbox {
-    font-family: 'DM Sans', serif;
-    margin: 0 auto 2em auto;
-    width: 80%;
+    height: 45px;
+    width: 280px;
+    margin-top: 2vh;
 }
 
-.textbox:focus {
-    outline: none;
+.button {
+    height: 45px;
+    width: 100px;
+    margin-top: 2vh;
 }
 
-.button{
-    margin-right: 2em;
-}
-
-.form-link {
-    font-family: 'DM Sans', serif;
-    margin-bottom: 1em;
-    position: fixed;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.navbar {
-    height: 50%;
-}
+.fa-bell {
+    color: #F6E7DE;
+} 
