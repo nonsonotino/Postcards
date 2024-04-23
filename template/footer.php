@@ -6,6 +6,6 @@
         <i class="fa-regular fa-paper-plane fa-xl"></i>
     </a>
     <a class="link-primary mr-3" href="#">
-        <img src="assets/default.jpg" class="img-fluid rounded-pill border border-3 border-primary" alt="Immagine profilo">
+        <img src="assets/profile_default.jpg" class="footer-image  rounded-pill border border-3 border-primary" alt="Immagine profilo">
     </a>
 </footer>
