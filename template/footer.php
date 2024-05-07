@@ -1,4 +1,4 @@
-<footer class="fixed-bottom py-3 m-3 d-flex justify-content-between border-top border-3 border-primary">
+<footer class="fixed-bottom py-3 m-3 mb-0 d-flex justify-content-between border-top border-3 border-primary bg-secondary">
     <a class="link-primary ml-3" href="#">
         <i class="fa-regular fa-envelope fa-xl"></i>
     </a>
