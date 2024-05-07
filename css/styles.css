@@ -42,12 +42,45 @@ html, body  {
     height: 2rem;
 }
 
+.postcard-scroll {
+  overflow: auto;
+  white-space: nowrap;
+  scroll-snap-type: x mandatory;
+  padding: 25px;
+  text-align: center;
+}
+
+.postcard-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.postcard-scroll {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
 .card {
   aspect-ratio: 3/2; /* Adjust height as needed */
   perspective: 1000px;
   transition: transform 0.8s ease-in-out;
   width: 100%;
   margin: 5%;
+  max-width: 500px;
+
+  display: inline-block;
+  scroll-snap-align: center;
+
+
+
+}
+
+.postcard-scroll>div:first-child {
+  margin-left: 50%; 
+}
+
+.postcard-scroll>div:last-child {
+  margin-right: 50%; 
 }
 
 .card-side {
@@ -68,12 +101,38 @@ html, body  {
   object-fit: cover;
 }
 
+.postcard-description{
+  font-family: 'Grape Nuts', serif;
+  width: 60%;
+  padding: 10px;
+}
+
+.postcard-info {
+  border-style: solid;
+  border-color: black;
+  border-width: 0 0 0 1px;
+  width: 40%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.info-image {
+  align-self: center;
+  justify-self: start;
+  height: 2rem;
+}
+
 .card-side.back {
   transform: rotateY(180deg);
 }
 
-.postcard-back {
+.postcard-background {
   background-image: repeating-linear-gradient(-45deg,white, white 10px,blue 10px, blue 20px,white 20px, white 30px,red 30px, red 40px);
+}
+
+.postcard-back {
+  padding: 10px;
 }
 
 .card:hover .card-side.front {
