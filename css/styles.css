@@ -3,6 +3,10 @@ html, body  {
  justify-content: center;
 }
 
+a {
+  text-decoration: none;
+}
+
 .titlecard {
     margin-top: 25vh;
 }
@@ -120,7 +124,15 @@ html, body  {
 .info-image {
   align-self: center;
   justify-self: start;
-  height: 2rem;
+  width: 40%;
+}
+
+.info-symbol {
+  margin-right: 5px;
+}
+
+.info-text {
+  font-size: 10px;
 }
 
 .card-side.back {
