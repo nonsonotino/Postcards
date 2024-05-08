@@ -21,7 +21,7 @@
         </div>
     </form>
     <footer class="form-link fixed-bottom mb-4">
-        <p class="text-center text-secondary">New here? <a class="link-tertiary" href="#">Join us</a></p>
+        <p class="text-center text-secondary">New here? <a id="signup" class="link-tertiary" href="signup.php">Join us</a></p>
     </footer>
     <script src="js/login.js"></script>
 </body>
