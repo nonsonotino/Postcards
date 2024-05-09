@@ -68,15 +68,10 @@ a {
   aspect-ratio: 3/2; /* Adjust height as needed */
   perspective: 1000px;
   transition: transform 0.8s ease-in-out;
-  width: 100%;
   margin: 5%;
   max-width: 500px;
-
   display: inline-block;
   scroll-snap-align: center;
-
-
-
 }
 
 .postcard-scroll>div:first-child {
@@ -155,3 +150,19 @@ a {
   transform: rotateY(0deg);
 }
 
+
+.profile-image {
+  width: 80px;
+}
+
+.profile-card {
+  aspect-ratio: 3/2;
+  width: 300px;
+  margin: 2%;
+}
+
+.postcard-profile-container {
+  height: 100%;
+  padding-top: 150px;
+  padding-bottom: 100px;
+}
