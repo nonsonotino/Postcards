@@ -72,6 +72,7 @@ a {
   max-width: 500px;
   display: inline-block;
   scroll-snap-align: center;
+  width: 100%;
 }
 
 .postcard-scroll>div:first-child {
@@ -161,8 +162,6 @@ a {
   margin: 2%;
 }
 
-.postcard-profile-container {
-  height: 100%;
-  padding-top: 150px;
-  padding-bottom: 100px;
+.notification-info {
+  text-align: center;
 }
