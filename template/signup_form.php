@@ -15,11 +15,6 @@
                     id="password-first" name="password-first" type="password" placeholder="Password" maxlength="20"
                     required>
             </div>
-            <div class="d-flex justify-content-center">
-                <input class="textbox border-secondary form-control border-2 bg-primary rounded-pill text-secondary"
-                    id="password-second" name="password-second" type="password" placeholder="Confirm your password"
-                    maxlength="20" required>
-            </div>
             <div class="d-flex justify-content-end">
                 <input class="button rounded-pill btn btn-secondary text-primary" type="submit" value="Sign in">
             </div>
