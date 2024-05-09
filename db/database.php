@@ -16,12 +16,47 @@ class DatabaseHelper
      */
     public function addNewUser($username, $email, $password)
     {
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
         $query = "INSERT INTO user (username, email, password) VALUES (?, ?, ?)";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('sss', $username, $email, $password);
-        $stmt->execute();
+        $stmt->bind_param('sss', $username, $email, $hashedPassword);
+        $result = $stmt->execute();
 
-        return $stmt->insert_id;
+        return $result;
+    }
+
+    /*
+     * Query to check if the credentials submitted are correct
+     */
+    public function checkLogin($username, $password)
+    {
+        $query = "SELECT password FROM user WHERE username = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s', $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+
+        if ($row && password_verify($password, $row['password'])) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /*
+     * Query to check if a username is already in use
+     */
+    public function checkUsernameExists($username)
+    {
+        $query = "SELECT COUNT(*) as count FROM user WHERE username = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s', $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+
+        return $row['count'] > 0;
     }
 
     /*
@@ -90,20 +125,6 @@ class DatabaseHelper
         $stmt->execute();
 
         return $stmt->insert_id;
-    }
-
-    /*
-     * Query to check if the credentials submitted are correct
-     */
-    public function checkLogin($username, $password)
-    {
-        $query = "SELECT username, password FROM user WHERE username = ? AND password = ?";
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ss', $username, $password);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        return $result->fetch_all(MYSQLI_ASSOC);
     }
 
     /*

@@ -8,11 +8,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $login_result = $dbh->checkLogin($username, $password);
 
-    if (is_null($login_result)) {
-        echo "error";
-        // TODO: Display error message
-    } else {
+    if ($login_result) {
         echo "success";
         registerLoggedUser($username, $password);
+    } else {
+        echo "error";
+        $_SESSION["error"] = "Invalid username or password";
+        header("Location: /Postcards/login.php");
+        exit();
     }
 }
