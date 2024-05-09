@@ -4,7 +4,7 @@
     ">
         <?php
         for ($i = 0; $i < 5; $i++) {
-             require ("profile-postcard.php");
+            require("profile_postcard.php");
         }
         ?>
         </div>
