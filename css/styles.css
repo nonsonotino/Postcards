@@ -7,9 +7,11 @@ a {
   text-decoration: none;
 }
 
-.titlecard {
-    margin-top: 25vh;
+.signup-form, .login-form {
+  padding-top: 25vh;
 }
+
+
 
 .title {
     font-family: 'DM Serif Display', serif;
@@ -47,24 +49,26 @@ a {
 }
 
 .postcard-scroll {
-  overflow: auto;
   white-space: nowrap;
   scroll-snap-type: x mandatory;
   padding: 25px;
-  text-align: center;
 }
 
 .postcard-scroll::-webkit-scrollbar {
   display: none;
 }
 
+.notifications-scroll::-webkit-scrollbar {
+  display: none;
+}
+
 /* Hide scrollbar for IE, Edge and Firefox */
-.postcard-scroll {
+.postcard-scroll, .notifications-scroll {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
 
-.card {
+.postcard {
   aspect-ratio: 3/2; /* Adjust height as needed */
   perspective: 1000px;
   transition: transform 0.8s ease-in-out;
@@ -73,6 +77,7 @@ a {
   display: inline-block;
   scroll-snap-align: center;
   width: 100%;
+  flex: none;
 }
 
 .postcard-scroll>div:first-child {
@@ -83,7 +88,7 @@ a {
   margin-right: 50%; 
 }
 
-.card-side {
+.postcard-side {
   position: absolute;
   top: 0;
   left: 0;
@@ -93,7 +98,7 @@ a {
   transition: transform 0.8s ease-in-out;
 }
 
-.card-side.front {
+.postcard-side.front {
   transform: rotateY(0deg);
 }
 
@@ -131,7 +136,7 @@ a {
   font-size: 10px;
 }
 
-.card-side.back {
+.postcard-side.back {
   transform: rotateY(180deg);
 }
 
@@ -143,11 +148,11 @@ a {
   padding: 10px;
 }
 
-.card:hover .card-side.front {
+.postcard:hover .postcard-side.front {
   transform: rotateY(180deg);
 }
 
-.card:hover .card-side.back {
+.postcard:hover .postcard-side.back {
   transform: rotateY(0deg);
 }
 
@@ -156,7 +161,7 @@ a {
   width: 80px;
 }
 
-.profile-card {
+.profile-postcard {
   aspect-ratio: 3/2;
   width: 300px;
   margin: 2%;
@@ -164,4 +169,8 @@ a {
 
 .notification-info {
   text-align: center;
+}
+
+.notifications-scroll:last-child {
+  border-bottom: 0 !important;
 }
