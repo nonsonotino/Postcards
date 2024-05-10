@@ -2,7 +2,7 @@
     <a class="link-primary me-2" href="#">
         <img src="assets/profile_default.jpg" class="footer-image  rounded-pill border border-3 border-primary" alt="Immagine profilo">
     </a>
-    <a class="link-primary me-2" href="#">
+    <a class="link-dark me-2 fw-bold" href="#">
         UserUsername
     </a>
     <p class="m-0">
