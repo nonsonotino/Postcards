@@ -1,4 +1,4 @@
-<body class="bg-primary">
+<body class="signup-form bg-primary">
     <?php require("title_card.php"); ?>
     <form class="container d-flex justify-content-center" action="/Postcards/ajax/signup.php" method="POST">
         <div>

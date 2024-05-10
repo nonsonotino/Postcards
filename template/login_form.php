@@ -1,4 +1,4 @@
-<body class="bg-primary">
+<body class="login-form bg-primary">
     <?php require("title_card.php"); ?>
     <?php
     if (isset($template_params["error_message"])) {
