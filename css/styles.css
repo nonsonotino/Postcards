@@ -21,7 +21,7 @@ a {
 }
 
 .date,
-.comments-title {
+.comments-title, .creation-title {
   font-family: 'DM Serif Display', serif;
 }
 
@@ -69,9 +69,14 @@ a {
   display: none;
 }
 
+.post-form::-webkit-scrollbar {
+  display: none;
+}
+
 .postcard-scroll,
 .notifications-scroll,
-.comments-scroll {
+.comments-scroll,
+.post-form {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
@@ -113,6 +118,7 @@ a {
 
 .postcard-image {
   object-fit: cover;
+  aspect-ratio: 3/2;
 }
 
 .postcard-description {
@@ -186,4 +192,19 @@ a {
 
 .comments-scroll>div:last-child {
   border: 0 !important;
+}
+
+.selected-image {
+  aspect-ratio: 3/2;
+  width: 60%;
+}
+
+@media (orientation: portrait) {
+  .post-form {
+    width: 90% !important;  
+  }
+
+  .form-button {
+    width: 45% !important;
+  }
 }
