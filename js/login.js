@@ -1,17 +1,20 @@
 window.onload = function () {
-    let login = document.getElementById("login");
+    let form = document.getElementById("loginForm");
     let signup = document.getElementById("signup");
 
-    signup.addEventListener("click", function() {
-        window.location.assign(this.href); 
-    });    
+    signup.addEventListener("click", function () {
+        window.location.assign(this.href);
+    });
 
-    login.addEventListener('click', function (e) {
+    form.addEventListener("submit", function (e) {
         e.preventDefault();
+        let formData = new FormData(this);
         result = $.ajax({
             url: "/Postcards/ajax/login.php",
             type: "POST",
-            data: $("#signupForm").serialize(),
+            data: formData,
+            processData: false,
+            contentType: false,
             success: function (response) {
                 console.log(response);
                 if (response.includes("success")) {
