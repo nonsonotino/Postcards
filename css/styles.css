@@ -1,93 +1,108 @@
-html, body  {
- height: 100vh;
- justify-content: center;
+html,
+body {
+  height: 100vh;
+  justify-content: center;
 }
 
 a {
   text-decoration: none;
 }
 
-.titlecard {
-    margin-top: 25vh;
+.signup-form,
+.login-form {
+  padding-top: 25vh;
 }
+
+
 
 .title {
-    font-family: 'DM Serif Display', serif;
-    margin-bottom: 0;
+  font-family: 'DM Serif Display', serif;
+  margin-bottom: 0;
 }
 
-.date {
-    font-family: 'DM Serif Display', serif;
+.date,
+.comments-title, .creation-title {
+  font-family: 'DM Serif Display', serif;
 }
 
 .catchphrase {
-    font-family: 'Grape Nuts', serif;
-    margin-top: -10px;
-    margin-left: 20vh;
+  font-family: 'Grape Nuts', serif;
+  margin-top: -10px;
+  margin-left: 20vh;
 }
 
 .textbox {
-    height: 45px;
-    width: 280px;
-    margin-top: 2vh;
+  height: 45px;
+  width: 280px;
+  margin-top: 2vh;
 }
 
 .button {
-    height: 45px;
-    width: 100px;
-    margin-top: 2vh;
+  height: 45px;
+  width: 100px;
+  margin-top: 2vh;
 }
 
 .fa-bell {
-    color: #F6E7DE;
-} 
+  color: #F6E7DE;
+}
 
 .footer-image {
-    height: 2rem;
+  height: 2rem;
 }
 
 .postcard-scroll {
-  overflow: auto;
   white-space: nowrap;
   scroll-snap-type: x mandatory;
   padding: 25px;
-  text-align: center;
 }
 
 .postcard-scroll::-webkit-scrollbar {
   display: none;
 }
 
-/* Hide scrollbar for IE, Edge and Firefox */
-.postcard-scroll {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+.notifications-scroll::-webkit-scrollbar {
+  display: none;
 }
 
-.card {
-  aspect-ratio: 3/2; /* Adjust height as needed */
+.comments-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.post-form::-webkit-scrollbar {
+  display: none;
+}
+
+.postcard-scroll,
+.notifications-scroll,
+.comments-scroll,
+.post-form {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.postcard {
+  aspect-ratio: 3/2;
+  /* Adjust height as needed */
   perspective: 1000px;
   transition: transform 0.8s ease-in-out;
-  width: 100%;
   margin: 5%;
   max-width: 500px;
-
   display: inline-block;
   scroll-snap-align: center;
-
-
-
+  width: 100%;
+  flex: none;
 }
 
 .postcard-scroll>div:first-child {
-  margin-left: 50%; 
+  margin-left: 50%;
 }
 
 .postcard-scroll>div:last-child {
-  margin-right: 50%; 
+  margin-right: 50%;
 }
 
-.card-side {
+.postcard-side {
   position: absolute;
   top: 0;
   left: 0;
@@ -97,15 +112,16 @@ a {
   transition: transform 0.8s ease-in-out;
 }
 
-.card-side.front {
+.postcard-side.front {
   transform: rotateY(0deg);
 }
 
 .postcard-image {
   object-fit: cover;
+  aspect-ratio: 3/2;
 }
 
-.postcard-description{
+.postcard-description {
   font-family: 'Grape Nuts', serif;
   width: 60%;
   padding: 10px;
@@ -135,23 +151,60 @@ a {
   font-size: 10px;
 }
 
-.card-side.back {
+.postcard-side.back {
   transform: rotateY(180deg);
 }
 
 .postcard-background {
-  background-image: repeating-linear-gradient(-45deg,white, white 10px,blue 10px, blue 20px,white 20px, white 30px,red 30px, red 40px);
+  background-image: repeating-linear-gradient(-45deg, white, white 10px, blue 10px, blue 20px, white 20px, white 30px, red 30px, red 40px);
 }
 
 .postcard-back {
   padding: 10px;
 }
 
-.card:hover .card-side.front {
+.postcard:hover .postcard-side.front {
   transform: rotateY(180deg);
 }
 
-.card:hover .card-side.back {
+.postcard:hover .postcard-side.back {
   transform: rotateY(0deg);
 }
 
+
+.profile-image {
+  width: 80px;
+}
+
+.profile-postcard {
+  aspect-ratio: 3/2;
+  width: 300px;
+  margin: 2%;
+}
+
+.notification-info {
+  text-align: center;
+}
+
+.notifications-scroll>div:last-child {
+  border: 0 !important;
+}
+
+.comments-scroll>div:last-child {
+  border: 0 !important;
+}
+
+.selected-image {
+  aspect-ratio: 3/2;
+  width: 60%;
+}
+
+@media (orientation: portrait) {
+  .post-form {
+    width: 90% !important;  
+  }
+
+  .form-button {
+    width: 45% !important;
+  }
+}

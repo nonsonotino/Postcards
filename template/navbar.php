@@ -1,4 +1,4 @@
-<nav class="fixed-top navbar navbar-expand-lg navbar-secondary bg-primary container-fluid py-4 d-flex justify-content-between">
+<nav class="navbar navbar-expand-lg navbar-secondary bg-primary container-fluid py-4 d-flex justify-content-between">
     <a class="link-secondary " href="#">
         <i class="fa-regular fa-bell fa-xl"></i>
     </a>
