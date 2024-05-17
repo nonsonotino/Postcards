@@ -16,13 +16,10 @@ window.onload = function () {
             processData: false,
             contentType: false,
             success: function (response) {
-                console.log(response);
-                if (response.includes("success")) {
-                    console.log(response);
+                if (response == "success") {
                     window.location.href = "/Postcards/index.php";
                 } else {
-                    // TODO: Display error message
-                    console.error("no success")
+                    console.log("login failed");
                 }
             }
         });

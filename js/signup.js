@@ -16,8 +16,7 @@ window.onload = function () {
                 if (response == "success") {
                     window.location.href = "/Postcards/index.php";
                 } else {
-                    let data = JSON.parse(response);
-                    showMessage(data.error);
+                    console.log("signup failed");
                 }
             },
         });

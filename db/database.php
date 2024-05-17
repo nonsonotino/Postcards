@@ -28,31 +28,14 @@ class DatabaseHelper
     /*
      * Query to check if the credentials submitted are correct
      */
-    // public function checkLogin($username, $password)
-    // {
-    //     $stmt = $this->db->prepare("SELECT * FROM user WHERE username = ?");
-    //     $stmt->bind_param('s', $username);
-    //     $stmt->execute();
-    //     $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
-
-    //     return (count($result) == 0 ? null : (password_verify($password, $result[0]["passwordHash"]) ? $result[0] : null));
-    // }
-
-
-    public function checkLogin($username, $password)
+    public function login($username, $password)
     {
-        $query = "SELECT password FROM user WHERE username = ?";
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param('s', $username);
+        $stmt = $this->db->prepare("SELECT username, password FROM user WHERE username = ? AND password = ?");
+        $stmt->bind_param('ss', $username, $password);
         $stmt->execute();
         $result = $stmt->get_result();
-        $row = $result->fetch_assoc();
 
-        if ($row && password_verify($password, $row['password'])) {
-            return true;
-        } else {
-            return false;
-        }
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 
     /*
