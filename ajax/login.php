@@ -3,8 +3,8 @@ require_once ("../bootstrap.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $username = $_POST["username"];
-    $password = $_POST["password"];
+    $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
+    $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
 
     if (empty($username) || empty($password)) {
         $errorMessage = "Please, fill in all the fields";
@@ -18,10 +18,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             registerLoggedUser($login_result["username"], $login_result["password"]);
         }
     }
-
-    // if (isset($errorMessage)) {
-    //     echo json_encode(["error" => $errorMessage]);
-    // } else {
-    //     echo "success";
-    // }
 }
