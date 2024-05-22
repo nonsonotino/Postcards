@@ -1,9 +1,8 @@
 <?php
-require_once("bootstrap.php");
+require_once ("bootstrap.php");
 
-//Set template parameters
-$template_params["title"] = "Login";
+$template_params["title"] = "Home";
 $template_params["page"] = "home.php";
 
-require("template/base.php");
+require ("template/base.php");
 ?>
