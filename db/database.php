@@ -30,12 +30,21 @@ class DatabaseHelper
      */
     public function login($username, $password)
     {
-        $stmt = $this->db->prepare("SELECT username, password FROM user WHERE username = ? AND password = ?");
-        $stmt->bind_param('ss', $username, $password);
+        $stmt = $this->db->prepare("SELECT username, password FROM user WHERE username = ?");
+        $stmt->bind_param('s', $username);
         $stmt->execute();
         $result = $stmt->get_result();
 
-        return $result->fetch_all(MYSQLI_ASSOC);
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            if (password_verify($password, $row["password"])) {
+                return $row;
+            } else {
+                return false;
+            }
+        } else {
+            return null;
+        }
     }
 
     /*

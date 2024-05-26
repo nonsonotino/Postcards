@@ -16,7 +16,7 @@ window.onload = function () {
             processData: false,
             contentType: false,
             success: function (response) {
-                if (response == "success") {
+                if (response == " success") {
                     window.location.href = "/Postcards/index.php";
                 } else {
                     console.log("login failed");
