@@ -5,7 +5,7 @@
     <div class="date text-secondary">
         <?php echo date("D d, M Y"); ?>
     </div>
-    <a class="link-secondary" href="#">
+    <a class="link-secondary" href="search.php">
         <i class="fa-solid fa-magnifying-glass fa-xl"></i>
     </a>
 </nav>
