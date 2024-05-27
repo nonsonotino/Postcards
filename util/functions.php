@@ -19,12 +19,10 @@ function sec_session_start()
 /**
  * Registers user credentials in the current session.
  * @param $username
- * @param $password
  */
-function registerLoggedUser($username, $password)
+function registerLoggedUser($username)
 {
         $_SESSION["username"] = $username;
-        $_SESSION["password"] = $password;
 }
 
 /**
