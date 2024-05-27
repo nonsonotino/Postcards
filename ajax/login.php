@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "error";
         } else {
             echo "success";
-            registerLoggedUser($username, $password);
+            registerLoggedUser($username);
         }
     }
 }
