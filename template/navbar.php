@@ -7,5 +7,5 @@
     </div>
     <a class="link-secondary" href="#">
         <i class="fa-solid fa-magnifying-glass fa-xl"></i>
-    </a> 
+    </a>
 </nav>
