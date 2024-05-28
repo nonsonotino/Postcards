@@ -28,19 +28,22 @@ class DatabaseHelper
     /*
      * Query to check if the credentials submitted are correct
      */
-    public function checkLogin($username, $password)
+    public function login($username, $password)
     {
-        $query = "SELECT password FROM user WHERE username = ?";
-        $stmt = $this->db->prepare($query);
+        $stmt = $this->db->prepare("SELECT username, password FROM user WHERE username = ?");
         $stmt->bind_param('s', $username);
         $stmt->execute();
         $result = $stmt->get_result();
-        $row = $result->fetch_assoc();
 
-        if ($row && password_verify($password, $row['password'])) {
-            return true;
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            if (password_verify($password, $row["password"])) {
+                return $row;
+            } else {
+                return false;
+            }
         } else {
-            return false;
+            return null;
         }
     }
 
@@ -58,6 +61,8 @@ class DatabaseHelper
 
         return $row['count'] > 0;
     }
+
+
 
     /*
      * Query to select a postcard by its id
@@ -117,14 +122,36 @@ class DatabaseHelper
     /*
      * Query to insert a new postcard in the database
      */
-    public function insertPostcard($timeStamp, $location, $image, $caption)
+    public function insertPostcard($location, $image, $caption, $username)
     {
-        $query = "INSERT INTO postcard (timeStamp, location, image, caption) VALUES (?, ?, ?, ?, ?, ?)";
+        $query = "INSERT INTO postcard (location, image, caption, username) VALUES (?, ?, ?, ?)";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('isss', $timeStamp, $location, $image, $caption);
-        $stmt->execute();
+        $stmt->bind_param('ssss', $location, $image, $caption, $username);
+        $result = $stmt->execute();
 
-        return $stmt->insert_id;
+        return $result;
+    }
+
+    /*
+     * Query to load the home page of a user
+     */
+    public function loadHomePage($username)
+    {
+        $query = "SELECT * " .
+            "FROM postcard " .
+            "WHERE postcard.username IN (SELECT friendship.usernameSender " .
+            "FROM friendship " .
+            "WHERE friendship.usernameReceiver = ?)";
+
+
+        $query .= "ORDER BY timestamp DESC";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s', $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 
     /*

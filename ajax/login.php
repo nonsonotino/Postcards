@@ -3,18 +3,18 @@ require_once ("../bootstrap.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $username = $_POST["username"];
-    $password = $_POST["password"];
+    $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
+    $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
 
-    $login_result = $dbh->checkLogin($username, $password);
-
-    if ($login_result) {
-        echo "success";
-        registerLoggedUser($username, $password);
+    if (empty($username) || empty($password)) {
+        echo "Please, fill in all the fields";
     } else {
-        echo "error";
-        $_SESSION["error"] = "Invalid username or password";
-        header("Location: /Postcards/login.php");
-        exit();
+        $login_result = $dbh->login($username, $password);
+        if (is_null($login_result)) {
+            echo "error";
+        } else {
+            echo "success";
+            registerLoggedUser($username);
+        }
     }
 }

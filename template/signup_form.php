@@ -1,6 +1,7 @@
 <body class="signup-form bg-primary">
-    <?php require("title_card.php"); ?>
-    <form class="container d-flex justify-content-center" action="/Postcards/ajax/signup.php" method="POST">
+    <?php require ("title_card.php"); ?>
+    <form id="signupForm" class="container d-flex justify-content-center" action="/Postcards/ajax/signup.php"
+        method="POST">
         <div>
             <div class="d-flex justify-content-center">
                 <input class="textbox border-secondary form-control border-2 bg-primary rounded-pill text-secondary"
@@ -12,8 +13,7 @@
             </div>
             <div class="d-flex justify-content-center">
                 <input class="textbox border-secondary form-control border-2 bg-primary rounded-pill text-secondary"
-                    id="password" name="password" type="password" placeholder="Password" maxlength="20"
-                    required>
+                    id="password" name="password" type="password" placeholder="Password" maxlength="20" required>
             </div>
             <div class="d-flex justify-content-center">
                 <input class="textbox border-secondary form-control border-2 bg-primary rounded-pill text-secondary"
@@ -21,11 +21,13 @@
                     maxlength="20" required>
             </div>
             <div class="d-flex justify-content-end">
-                <input id="submit" class="button rounded-pill btn btn-secondary text-primary" type="submit" value="Sign in">
+                <input id="submit" class="button rounded-pill btn btn-secondary text-primary" type="submit"
+                    value="Sign in">
             </div>
         </div>
     </form>
     <footer class="form-link fixed-bottom mb-4">
-        <p class="text-center text-secondary">Already on board? <a id="login" class="link-tertiary" href="login.php">Login</a></p>
+        <p class="text-center text-secondary">Already on board? <a id="login" class="link-tertiary"
+                href="login.php">Login</a></p>
     </footer>
 </body>
