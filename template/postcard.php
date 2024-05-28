@@ -7,7 +7,7 @@
       <div class="postcard-back bg-white h-100 w-100 d-flex">
 
         <div class="postcard-description">
-          <p class="text-start text-wrap w-100 h-100">Hi, look at these beautiful mountains!
+          <p class="text-start text-break text-wrap w-100 h-100">Hi, look at these beautiful mountains!
             rdftyghjiklkjhgufydtsedrtyghoijlèkjiogyufdrtyftuhoij jkjlkh</p>
         </div>
 
@@ -27,9 +27,7 @@
             <a class="info-text link-dark" href="#">Location, Place</a>
           </div>
           <div class="d-flex flex-row justify-content-start mb-2 w-100">
-            <div class="info-symbol text-dark">
-              <i class="fa-regular fa-calendar"></i>
-            </div>
+            <i class="fa-regular fa-calendar me-1"></i>
             <p class="info-text">08/05/2024</p>
           </div>
         </div>

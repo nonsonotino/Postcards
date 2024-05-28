@@ -145,6 +145,8 @@ a {
 
 .info-symbol {
   margin-right: 5px;
+  width: 20%;
+  aspect-ratio: 1x1;
 }
 
 .info-text {
