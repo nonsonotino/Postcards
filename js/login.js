@@ -8,15 +8,14 @@ window.onload = function () {
 
     form.addEventListener("submit", function (e) {
         e.preventDefault();
-        let formData = new FormData(this);
         result = $.ajax({
             url: "/Postcards/ajax/login.php",
             type: "POST",
-            data: formData,
+            data: $("#loginForm").serialize(),
             processData: false,
             contentType: false,
             success: function (response) {
-                if (response == " success") {
+                if (response == "success") {
                     window.location.href = "/Postcards/index.php";
                 } else {
                     console.log("login failed");

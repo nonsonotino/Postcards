@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $confirmPassword = $_POST["confirm_password"];
 
     if (empty($username) || empty($email) || empty($password) || empty($confirmPassword)) {
-        $errorMessage = "Error! You can't use empty information!";
+        $errorMessage = "Error! Please fill in all the fields!";
     } else if (!preg_match("/^[a-zA-Z0-9._]*$/", $username)) {
         $errorMessage = "Error! Username can only contain letters, numbers, periods, and underscores!";
     } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {

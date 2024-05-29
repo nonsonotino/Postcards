@@ -12,6 +12,8 @@ window.onload = function () {
             url: "/Postcards/ajax/signup.php",
             type: "POST",
             data: $("#signupForm").serialize(),
+            processData: false,
+            contentType: false,
             success: function (response) {
                 if (response == "success") {
                     window.location.href = "/Postcards/index.php";

@@ -7,7 +7,7 @@ use postcards;
 create table USER (
      username char(20) not null,
      email varchar(200) not null,
-     password varchar(30) not null,
+     password varchar(255) not null,
      profilePicture varchar(200) DEFAULT 'profile_default.jpg',
      constraint IDUSER primary key (username));
 

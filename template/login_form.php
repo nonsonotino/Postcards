@@ -5,7 +5,8 @@
         echo '<p style="color: red; text-align: center;">' . $template_params["error_message"] . '</p>';
     }
     ?>
-    <form id="loginForm" class="container d-flex justify-content-center" method="POST" action="/ajax/login.php">
+    <form id="loginForm" class="container d-flex justify-content-center" method="POST"
+        action="/Postcards/ajax/login.php">
         <div class="">
             <div class="d-flex justify-content-center">
                 <input class="textbox border-secondary form-control border-2 bg-primary rounded-pill text-secondary"
@@ -25,5 +26,4 @@
         <p class="text-center text-secondary">New here? <a id="signup" class="link-tertiary" href="signup.php">Join
                 us</a></p>
     </footer>
-    <script src="js/login.js"></script>
 </body>
