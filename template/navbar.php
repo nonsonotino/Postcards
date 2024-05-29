@@ -6,7 +6,8 @@
         <?php echo date("D d, M Y"); ?>
     </div>
     <form class="d-flex flex-line">
-      <input class="" type="search" placeholder="Search">
-      <button class="btn bg-primary" type="submit"><i class="fa-solid fa-magnifying-glass fa-xl"></i></i></button>
+      <a href="#" class="link-secondary">
+        <i class="fa-solid fa-magnifying-glass fa-xl"></i></i>
+      </a>
     </form>
 </nav>
