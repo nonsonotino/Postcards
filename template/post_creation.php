@@ -16,7 +16,7 @@
                     onchange="displaySelectedImage(event, 'selectedImage')" />
             </div>
             <label for="description-input" class="form-label fs-5  text-primary mt-3">Add a description:</label>
-            <textarea class="form-control border border-primary" id="description-input" name="description"
+            <textarea class="description-area form-control border border-primary" id="description-input" name="description"
                 rows="3"></textarea>
             <label for="location-input" class="form-label fs-5  text-primary mt-3">Where are you writing from?</label>
             <input id="location-input" class="form-control border border-primary" type="text" name="location"
