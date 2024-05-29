@@ -1,6 +1,29 @@
 window.onload = function () {
     let form = document.getElementById("loginForm");
     let signup = document.getElementById("signup");
+    let errorText = document.getElementById("errorText");
+
+    let showMessage = function (message) {
+        errorText.hidden = false;
+        errorText.textContent = message;
+    }
+
+    let validateForm = function () {
+        var username = $("#username").val();
+        var password = $("#password").val();
+
+        if (username.length < 3) {
+            showMessage("Username must be at least 3 characters long.");
+            return false;
+        }
+
+        if (password.length < 6) {
+            showMessage("Password must be at least 6 characters long.");
+            return false;
+        }
+
+        return true;
+    }
 
     signup.addEventListener("click", function () {
         window.location.assign(this.href);
@@ -21,33 +44,11 @@ window.onload = function () {
                         window.location.href = "/Postcards/index.php";
                     } else {
                         console.log("login failed");
-                        const errorText = document.getElementById("errorLoginText");
-                        errorText.hidden = false;
-                        errorText.textContent = 'Credentials invalid or not existent'
+                        let data = JSON.parse(response);
+                        showMessage(data.error);
                     }
                 }
             });
         }
     });
-}
-
-function validateForm() {
-    $("#usernameError").attr("hidden", true);
-    $("#passwordError").attr("hidden", true);
-    var username = $("#username").val();
-    var password = $("#password").val();
-
-    if (username.length < 3) {
-        $("#usernameError").html("Username must be at least 3 characters long.")
-        $("#usernameError").removeAttr("hidden");
-        return false;
-    }
-
-    if (password.length < 6) {
-        $("#passwordError").html("Password must be at least 6 characters long.");
-        $("#passwordError").removeAttr("hidden");
-        return false;
-    }
-
-    return true;
 }

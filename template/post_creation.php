@@ -17,8 +17,8 @@
             <label for="location-input" class="form-label fs-5  text-primary mt-3">Where are you writing from?</label>
             <input id="location-input" class="form-control border border-primary" type="text" name="location"
                 aria-label="default input example">
+            <span id="errorText" class="text-danger fs-7" hidden></span>
             <button id="submit" type="submit" class="btn btn-primary mt-3 w-25 form-button align-self-end">Send</button>
-
         </form>
 
     </div>

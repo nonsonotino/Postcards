@@ -6,13 +6,11 @@
                 <input class="textbox border-secondary form-control border-2 bg-primary rounded-pill text-secondary"
                     id="username" name="username" type="text" placeholder="Username" maxlength="20" required>
             </div>
-            <span id="usernameError" class="text-danger fs-7 text-center" hidden></span>
             <div class="d-flex justify-content-center">
                 <input class="textbox border-secondary form-control border-2 bg-primary rounded-pill text-secondary"
                     id="password" name="password" type="password" placeholder="Password" maxlength="20" required>
             </div>
-            <span id="passwordError" class="text-danger fs-7 text-center" hidden></span>
-            <p id="errorLoginText" class="text-danger fs-7 text-center" hidden></p>
+            <span id="errorText" class="text-danger fs-7" hidden></span>
             <div class="d-flex justify-content-end">
                 <input id="login" class="button rounded-pill btn btn-secondary text-primary" type="submit"
                     value="Login">

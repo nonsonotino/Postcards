@@ -7,18 +7,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
 
     if (empty($username) || empty($password)) {
-        $errorMessage = "Error! Please, fill in all the fields!";
+        $errorMessage = "Error! Please, fill in all the fields.";
     } else {
         $login_result = $dbh->login($username, $password);
         if (is_null($login_result)) {
-            $errorMessage = "Error! Incorrect username or password!";
+            $errorMessage = "Error! Incorrect username or password.";
         } else {
             registerLoggedUser($username);
         }
     }
 
     if (isset($errorMessage)) {
-        echo "error";
+        echo json_encode(["error" => $errorMessage]);
     } else {
         echo "success";
     }
