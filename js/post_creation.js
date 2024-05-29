@@ -1,20 +1,25 @@
-function displaySelectedImage(event, elementId) {
-    const selectedImage = document.getElementById(elementId);
-    const fileInput = event.target;
-
-    if (fileInput.files && fileInput.files[0]) {
-        const reader = new FileReader();
-
-        reader.onload = function (e) {
-            selectedImage.src = e.target.result;
-        };
-
-        reader.readAsDataURL(fileInput.files[0]);
-    }
-}
-
 window.onload = function () {
     let form = document.getElementById("postCreationForm");
+    let imageElement = document.getElementById("selectedImage");
+    let inputFile = document.getElementById("postImage");
+
+    imageElement.addEventListener("click", function () {
+        inputFile.click();
+    });
+
+    inputFile.addEventListener("change", function () {
+        const imageFile = this.files[0];
+        const reader = new FileReader();
+
+        reader.onload = () => {
+            const imgUrl = reader.result;
+            imageElement.src = imgUrl;
+        };
+
+        if (imageFile) {
+            reader.readAsDataURL(imageFile);
+        }
+    });
 
     form.addEventListener("submit", function (e) {
         e.preventDefault();

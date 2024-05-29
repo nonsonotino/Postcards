@@ -4,17 +4,13 @@
     <script src="js/post_creation.js"></script>
     <div class="post-form w-50 h-100 align-self-center overflow-scroll py-3">
         <form id="postCreationForm" method="POST" action="/ajax/post_creation.php" class="d-flex flex-column">
-            <label for="image-input" class="form-label fs-5  text-primary">Insert a picture:</label>
+            <label for="image-input" class="form-label fs-5 text-primary">Insert a picture:</label>
             <div class="bg-white p-2 selected-image border border-primary">
                 <img id="selectedImage" src="assets/placeholder_image.png" alt="selected image"
                     class="postcard-image w-100">
             </div>
-            <div data-mdb-ripple-init class="btn btn-primary btn-rounded w-25 mt-2 form-button">
-                <label id="imageSelection" class="form-label text-white m-1" for="postImage">Select an image</label>
-                <input name="postImage" accept="image/jpg, image/jpeg, image/png, image/gif" type="file"
-                    class="form-control d-none" id="postImage"
-                    onchange="displaySelectedImage(event, 'selectedImage')" />
-            </div>
+            <input type="file" class="form-control d-none" id="postImage" name="postImage"
+                accept="image/jpg, image/jpeg, image/png, image/gif" />
             <label for="description-input" class="form-label fs-5  text-primary mt-3">Add a description:</label>
             <textarea class="description-area form-control border border-primary" id="description-input" name="description"
                 rows="3"></textarea>
