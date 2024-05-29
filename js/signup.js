@@ -1,12 +1,48 @@
 window.onload = function () {
     let form = document.getElementById("signupForm");
     let login = document.getElementById("login");
+    let errorText = document.getElementById("errorText");
 
-    login.addEventListener('click', function () {
+    let validateForm = function () {
+        var username = $("#username").val();
+        var email = $("#email").val();
+        var password = $("#password").val();
+        var confirmPassword = $("#confirm_password").val();
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (username.length < 3) {
+            showMessage("Username must be at least 3 characters long.");
+            return false;
+        }
+
+        if (!emailRegex.test(email)) {
+            showMessage("Insert a valid email address.");
+            return false;
+        }
+
+        if (password.length < 6) {
+            showMessage("Password must be at least 6 characters long.");
+            return false;
+        }
+
+        if (password !== confirmPassword) {
+            showMessage("Passwords do not match.");
+            return false;
+        }
+
+        return true;
+    }
+
+    let showMessage = function (message) {
+        errorText.hidden = false;
+        errorText.textContent = message;
+    }
+
+    login.addEventListener("click", function () {
         window.location.assign(this.href);
     });
 
-    form.addEventListener('click', function (e) {
+    form.addEventListener("submit", function (e) {
         e.preventDefault();
         if (validateForm()) {
             const formData = new FormData(this);
@@ -21,48 +57,11 @@ window.onload = function () {
                         window.location.href = "/Postcards/index.php";
                     } else {
                         console.log("signup failed");
+                        let data = JSON.parse(response);
+                        showMessage(data.error);
                     }
                 },
             });
         }
     });
-
-    function validateForm() {
-        $("#usernameError").attr("hidden", true);
-        $("#emailError").attr("hidden", true);
-        $("#passwordError").attr("hidden", true);
-        $("#confirmPasswordError").attr("hidden", true);
-
-        var username = $("#username").val();
-        var email = $("#email").val();
-        var password = $("#password").val();
-        var confirmPassword = $("#confirm_password").val();
-
-        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            $("#emailError").html("Insert a valid email address.");
-            $("#emailError").removeAttr("hidden");
-            return false;
-        }
-
-        if (username.length < 3) {
-            $("#usernameError").html("Username must be at least 3 characters long.")
-            $("#usernameError").removeAttr("hidden");
-            return false;
-        }
-
-        if (password.length < 6) {
-            $("#passwordError").html("Password must be at least 6 characters long.");
-            $("#passwordError").removeAttr("hidden");
-            return false;
-        }
-
-        if (password !== confirmPassword) {
-            $("#confirmPasswordError").html("Passwords don't match.");
-            $("#confirmPasswordError").removeAttr("hidden");
-            return false;
-        }
-
-        return true;
-    }
 }
