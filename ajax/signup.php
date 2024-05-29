@@ -3,10 +3,10 @@
 require_once ("../bootstrap.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST["username"];
+    $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
     $email = $_POST["email"];
-    $password = $_POST["password"];
-    $confirmPassword = $_POST["confirm_password"];
+    $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
+    $confirmPassword = filter_input(INPUT_POST, "confirm_password", FILTER_SANITIZE_SPECIAL_CHARS);
 
     if (empty($username) || empty($email) || empty($password) || empty($confirmPassword)) {
         $errorMessage = "Error! Please fill in all the fields!";
@@ -30,13 +30,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if (isset($errorMessage)) {
-        echo json_encode(["error" => $errorMessage]);
-        header("Location: /Postcards/signup.php");
-        exit();
+        echo "error";
     } else {
         echo "success";
-        header("Location: /Postcards/index.php");
-        exit();
     }
 }
 ?>

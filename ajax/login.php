@@ -18,13 +18,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if (isset($errorMessage)) {
-        echo json_encode(["error" => $errorMessage]);
-        header("Location: /Postcards/login.php");
-        exit();
+        echo "error";
     } else {
         echo "success";
-        header("Location: /Postcards/index.php");
-        exit();
     }
 }
 ?>
