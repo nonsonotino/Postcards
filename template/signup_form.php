@@ -1,28 +1,28 @@
 <body class="signup-form bg-primary">
     <?php require ("title_card.php"); ?>
     <form id="signupForm" class="container d-flex justify-content-center" action="#" method="POST">
-        <div>
+        <div class="d-flex flex-column justify-content-center">
             <div class="d-flex justify-content-center">
                 <input class="textbox border-secondary form-control border-2 bg-primary rounded-pill text-secondary"
                     id="username" name="username" type="text" placeholder="Username" maxlength="20" required>
-                <span id="usernameError" class="text-danger fs-7" hidden></span>
             </div>
+            <span id="usernameError" class="text-danger fs-7 text-center" hidden></span>
             <div class="d-flex justify-content-center">
                 <input class="textbox border-secondary form-control border-2 bg-primary rounded-pill text-secondary"
                     id="email" name="email" type="text" placeholder="E-mail" maxlength="200" required>
-                <span id="emailError" class="text-danger fs-7" hidden></span>
             </div>
+            <span id="emailError" class="text-danger fs-7 text-center" hidden></span>
             <div class="d-flex justify-content-center">
                 <input class="textbox border-secondary form-control border-2 bg-primary rounded-pill text-secondary"
                     id="password" name="password" type="password" placeholder="Password" maxlength="20" required>
-                <span id="passwordError" class="text-danger fs-7" hidden></span>
             </div>
+            <span id="passwordError" class="text-danger fs-7 text-center" hidden></span>
             <div class="d-flex justify-content-center">
                 <input class="textbox border-secondary form-control border-2 bg-primary rounded-pill text-secondary"
                     id="confirm_password" name="confirm_password" type="password" placeholder="Confirm your password"
                     maxlength="20" required>
-                <span id="confirmPasswordError" class="text-danger fs-7" hidden></span>
             </div>
+            <span id="confirmPasswordError" class="text-danger fs-7 text-center" hidden></span>
             <div class="d-flex justify-content-end">
                 <input id="submit" class="button rounded-pill btn btn-secondary text-primary" type="submit"
                     value="Sign in">

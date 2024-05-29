@@ -23,7 +23,7 @@ window.onload = function () {
                         console.log("login failed");
                         const errorText = document.getElementById("errorLoginText");
                         errorText.hidden = false;
-                        errorText.textContent = 'Check your informations: credentials invalid or not existent'
+                        errorText.textContent = 'Credentials invalid or not existent'
                     }
                 }
             });
