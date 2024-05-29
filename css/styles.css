@@ -8,9 +8,13 @@ a {
   text-decoration: none;
 }
 
+p {
+  margin: 0;
+}
+
 .signup-form,
 .login-form {
-  padding-top: 25vh;
+  padding-top: 15vh;
 }
 
 
@@ -144,9 +148,7 @@ a {
 }
 
 .info-symbol {
-  margin-right: 5px;
-  width: 20%;
-  aspect-ratio: 1x1;
+  aspect-ratio: 1/1;
 }
 
 .info-text {
@@ -198,7 +200,12 @@ a {
 
 .selected-image {
   aspect-ratio: 3/2;
-  width: 60%;
+  width: 100%;
+}
+
+.description-area {
+  resize: none;
+  height: 150px;
 }
 
 @media (orientation: portrait) {
