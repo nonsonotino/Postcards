@@ -51,6 +51,20 @@ p {
   color: #F6E7DE;
 }
 
+.notification-bell {
+  position: relative;
+}
+
+.notification-badge {
+  border-radius: 2px;
+  color: white;
+  padding: 1px 3px;
+  font-size: 10px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
 .footer-image {
   height: 2rem;
 }

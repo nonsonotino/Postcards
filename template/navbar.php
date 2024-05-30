@@ -1,6 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-secondary bg-primary container-fluid py-4 d-flex justify-content-between">
-    <a class="link-secondary " href="notifications.php">
+    <a class="link-secondary notification-bell" href="notifications.php">
         <i class="fa-regular fa-bell fa-xl"></i>
+        <span class="notification-badge bg-danger">2</span>
     </a>
     <div class="date text-secondary align-self-center">
         <?php echo date("D d, M Y"); ?>
