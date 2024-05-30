@@ -84,15 +84,19 @@ class DatabaseHelper
     /*
      * Query to select all the penfriends of a user 
      */
-    public function getPenfriends($usernameReceiver)
+    public function getPenfriends($username)
     {
-        $query = "SELECT usernameSender as PenFriends FROM friendship WHERE usernameReceiver=?";
+        $query = "SELECT COUNT(usernameSender) as penFriends " .
+            " FROM friendship " .
+            " WHERE usernameReceiver = ? " .
+            " GROUP BY usernameSender";
+
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('s', $usernameReceiver);
+        $stmt->bind_param('s', $username);
         $stmt->execute();
         $result = $stmt->get_result();
 
-        return $result->fetch_all(MYSQL_ASSOC);
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 
     /*
@@ -128,12 +132,30 @@ class DatabaseHelper
     {
         $query = "SELECT * " .
             "FROM postcard " .
-            "WHERE postcard.username IN (SELECT friendship.usernameSender " .
+            "WHERE postcard.username IN (SELECT friendship.usernameReceiver " .
             "FROM friendship " .
-            "WHERE friendship.usernameReceiver = ?)";
+            "WHERE friendship.usernameSender = ?)";
 
 
         $query .= "ORDER BY timestamp DESC";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s', $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    /*
+     * Query to load the profile page of a user
+     */
+    public function loadProfilePage($username)
+    {
+        $query = "SELECT u.username, u.profilePicture, p.image 
+              FROM user u
+              JOIN postcard p ON u.username = p.username
+              WHERE u.username = ?";
 
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('s', $username);
