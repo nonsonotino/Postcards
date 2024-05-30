@@ -41,7 +41,7 @@ window.onload = function () {
                 contentType: false,
                 success: function (response) {
                     if (response.trim() == "success") {
-                        window.location.href = "/Postcards/index.php";
+                        window.location.href = "/Postcards/home.php";
                     } else {
                         console.log("login failed");
                         let data = JSON.parse(response);
