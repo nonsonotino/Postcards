@@ -11,3 +11,4 @@
 
     <?php require ("footer.php") ?>
 </body>
+<script src="/Postcards/js/profile.js"></script>
