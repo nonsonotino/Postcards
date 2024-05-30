@@ -6,7 +6,7 @@
         <p><?php echo $_SESSION["username"] ?></p>
     </div>
     <div class="d-flex flex-column align-items-center">
-        <p class="m-0">11</p>
+        <p class="m-0"><?php echo $friends[0]["penFriends"] ?></p>
         <p class="mb-2">penfriends</p>
         <button class="btn btn-primary btn-sm">add to friends</button>
     </div>
