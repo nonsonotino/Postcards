@@ -31,7 +31,7 @@ function registerLoggedUser($username)
  */
 function isUserLoggedIn()
 {
-        return !empty($_SESSION["username"]);
+        return isset($_SESSION["username"]);
 }
 
 /**

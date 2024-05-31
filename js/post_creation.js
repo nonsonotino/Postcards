@@ -52,7 +52,7 @@ window.onload = function () {
         e.preventDefault();
         if (validateForm()) {
             let formData = new FormData(this);
-            result = $.ajax({
+            $.ajax({
                 url: "ajax/post_creation.php",
                 type: "POST",
                 data: formData,
