@@ -1,15 +1,31 @@
 window.onload = function () {
-    let buttonAdd = document.getElementById("addToFriends");
-    let buttonRemove = document.getElementById("removeFromFriends");
+    let addButton = document.getElementById("addToFriends");
+    let removeButton = document.getElementById("removeFromFriends");
+    let logoutButton = document.getElementById("logout");
 
-    buttonAdd.addEventListener("click", function () {
-        buttonAdd.hidden = true;
-        buttonRemove.hidden = false;
+    addButton.addEventListener("click", function () {
+        addButton.hidden = true;
+        removeButton.hidden = false;
     });
 
-    buttonRemove.addEventListener("click", function () {
-        buttonRemove.hidden = true;
-        buttonAdd.hidden = false;
+    removeButton.addEventListener("click", function () {
+        removeButton.hidden = true;
+        addButton.hidden = false;
     });
 
+    logoutButton.addEventListener("click", function (e) {
+        e.preventDefault();
+        $.ajax({
+            url: "ajax/logout.php",
+            type: "POST",
+            success: function (response) {
+                console.log(response);
+                if (response.trim() == "success") {
+                    window.location.href = "/Postcards/login.php";
+                } else {
+                    console.log("Logout failed");
+                }
+            },
+        });
+    });
 } 

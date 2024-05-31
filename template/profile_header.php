@@ -13,4 +13,7 @@
             hidden>remove from
             friends</button>
     </div>
+    <div class="d-flex flex-column">
+        <button id="logout" class="btn btn-primary btn-sm">Logout</button>
+    </div>
 </header>
