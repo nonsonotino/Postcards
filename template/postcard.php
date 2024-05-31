@@ -51,7 +51,7 @@
           </div>
 
           <div class="comment-button align-self-end">
-            <a href="#" class="link-dark">
+            <a href="comments.php" class="link-dark">
               <i class="fa-solid fa-comment"></i>
             </a>
           </div>
