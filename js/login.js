@@ -33,7 +33,7 @@ window.onload = function () {
         e.preventDefault();
         if (validateForm()) {
             const formData = new FormData(this);
-            result = $.ajax({
+            $.ajax({
                 url: "ajax/login.php",
                 type: "POST",
                 data: formData,

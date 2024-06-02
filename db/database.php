@@ -155,7 +155,9 @@ class DatabaseHelper
         $query = "SELECT u.username, u.profilePicture, p.image 
               FROM user u
               JOIN postcard p ON u.username = p.username
-              WHERE u.username = ?";
+              WHERE u.username = ?
+              ORDER BY p.timestamp DESC";
+
 
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('s', $username);
