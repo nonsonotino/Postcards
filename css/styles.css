@@ -142,7 +142,12 @@ p {
 .postcard-description {
   font-family: 'Grape Nuts', serif;
   width: 60%;
-  padding: 10px;
+  font-size: 1rem;
+
+}
+
+.description-text {
+  padding-right: 10px;
 }
 
 .postcard-info {

@@ -8,7 +8,7 @@
       <div class="postcard-back bg-white h-100 w-100 d-flex">
 
         <div class="postcard-description">
-          <p class="text-start text-break text-wrap w-100 h-100">
+          <p class="description-text text-start text-break text-wrap w-100 h-100">
             <?php echo htmlspecialchars($postcards['caption']); ?>
           </p>
         </div>
@@ -38,7 +38,7 @@
           </div>
 
           <div class="d-flex flex-row justify-content-start align-items-center w-100">
-            <div class="info-symbol me-2 link-dark">
+            <div class="info-symbol link-dark">
               <i class="fa-regular fa-calendar me-1"></i>
             </div>
             <p class="info-text">
@@ -51,7 +51,7 @@
           </div>
 
           <div class="comment-button align-self-end">
-            <a href="comments.php" class="link-dark">
+            <a href="comments.php" class="link-dark info-symbol">
               <i class="fa-solid fa-comment"></i>
             </a>
           </div>
