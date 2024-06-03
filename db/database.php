@@ -78,7 +78,7 @@ class DatabaseHelper
         $stmt->execute();
         $result = $stmt->get_result();
 
-        return $result->fetch_all(MYSQL_ASSOC);
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 
     /*
