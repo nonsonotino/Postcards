@@ -8,7 +8,7 @@
       <div class="postcard-back bg-white h-100 w-100 d-flex">
 
         <div class="postcard-description">
-          <p class="text-start text-break text-wrap w-100 h-100">
+          <p class="description-text text-start text-break text-wrap w-100 h-100">
             <?php echo htmlspecialchars($postcards['caption']); ?>
           </p>
         </div>
