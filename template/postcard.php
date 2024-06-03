@@ -15,15 +15,15 @@
 
         <div class="postcard-info d-flex align-items-start">
 
-          <img src="assets/profile_default.jpg"
+          <img src="<?= str_replace("../", "", $profile[0]["profilePicture"]); ?>"
             class="info-image  rounded-pill border border-3 border-primary ratio ratio-1x1 mb-3" alt="Immagine profilo">
 
           <div class="d-flex flex-row justify-content-start mb-2 w-100 align-items-center">
 
-            <a class="info-symbol me-2 link-dark" href="#">
+            <a class="info-symbol me-2 link-dark" href="profile.php">
               <i class="fa-solid fa-user"></i>
             </a>
-            <a class="info-text link-dark" href="#">
+            <a class="info-text link-dark" href="profile.php">
               <?php echo htmlspecialchars($postcards['username']); ?>
             </a>
           </div>

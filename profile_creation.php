@@ -4,12 +4,9 @@ require_once ("bootstrap.php");
 
 $username = $_SESSION['username'];
 $profile = $dbh->loadProfilePage($username);
-$friends = $dbh->getPenFriends($username);
-$profile["friends"] = count($friends);
-
-$template_params["title"] = "Profile";
-$template_params["page"] = "template/profile.php";
 $template_params["profile"] = $profile;
+$template_params["title"] = "Edit profile";
+$template_params["page"] = "template/profile_creation.php";
 
 require ("template/base.php");
 ?>
