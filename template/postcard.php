@@ -1,7 +1,6 @@
 <div class="postcard bg-secondary">
   <div class="postcard-side front bg-white p-2">
-    <img class="postcard-image w-100 h-100 align-self-center" src="<?= str_replace("../", "", $postcards['image']) ?>"
-      alt="Postcard Front">
+    <img class="postcard-image w-100 h-100 align-self-center" src="<?= str_replace("../", "", $postcards['image']) ?>" alt="Postcard Front">
   </div>
   <div class="postcard-side back">
     <div class="postcard-background w-100 h-100 p-2">
@@ -15,8 +14,7 @@
 
         <div class="postcard-info d-flex align-items-start">
 
-          <img src="assets/profile_default.jpg"
-            class="info-image  rounded-pill border border-3 border-primary ratio ratio-1x1 mb-3" alt="Immagine profilo">
+          <img src="assets/profile_default.jpg" class="info-image  rounded-pill border border-3 border-primary ratio ratio-1x1 mb-3" alt="Immagine profilo">
 
           <div class="d-flex flex-row justify-content-start mb-2 w-100 align-items-center">
 
@@ -38,7 +36,7 @@
           </div>
 
           <div class="d-flex flex-row justify-content-start align-items-center w-100">
-            <div class="info-symbol me-2 link-dark">
+            <div class="info-symbol link-dark">
               <i class="fa-regular fa-calendar me-1"></i>
             </div>
             <p class="info-text">
@@ -51,7 +49,7 @@
           </div>
 
           <div class="comment-button align-self-end">
-            <a href="comments.php" class="link-dark">
+            <a href="comments.php" class="link-dark info-symbol">
               <i class="fa-solid fa-comment"></i>
             </a>
           </div>
