@@ -78,7 +78,7 @@ class DatabaseHelper
         $stmt->execute();
         $result = $stmt->get_result();
 
-        return $result->fetch_all(MYSQL_ASSOC);
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 
     /*
@@ -152,7 +152,7 @@ class DatabaseHelper
      */
     public function loadProfilePage($username)
     {
-        $query = "SELECT u.username, u.profilePicture, p.image 
+        $query = "SELECT u.username, u.profilePicture, p.image
               FROM user u
               JOIN postcard p ON u.username = p.username
               WHERE u.username = ?
