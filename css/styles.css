@@ -199,6 +199,11 @@ p {
   width: 80px;
 }
 
+.friend-button {
+  white-space: nowrap; 
+  width: 150px;
+}
+
 .profile-postcard {
   aspect-ratio: 3/2;
   width: 300px;
