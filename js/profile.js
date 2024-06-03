@@ -3,14 +3,42 @@ window.onload = function () {
     let removeButton = document.getElementById("removeFromFriends");
     let logoutButton = document.getElementById("logout");
 
-    addButton.addEventListener("click", function () {
+    addButton.addEventListener("click", function (e) {
+        e.preventDefault();
         addButton.hidden = true;
         removeButton.hidden = false;
+        $.ajax({
+            url: "ajax/add_friend.php",
+            type: "POST",
+            success: function (response) {
+                console.log(response);
+                if (response.trim() == "success") {
+                    //window.location.href = "/Postcards/profile.php";
+                    console.log("Friend added");
+                } else {
+                    console.log("Friend not added");
+                }
+            },
+        });
     });
 
-    removeButton.addEventListener("click", function () {
+    removeButton.addEventListener("click", function (e) {
+        e.preventDefault();
         removeButton.hidden = true;
         addButton.hidden = false;
+        $.ajax({
+            url: "ajax/remove_friend.php",
+            type: "POST",
+            success: function (response) {
+                console.log(response);
+                if (response.trim() == "success") {
+                    window.location.href = "/Postcards/profile.php";
+                    console.log("Friend removed");
+                } else {
+                    console.log("Friend not removed");
+                }
+            },
+        });
     });
 
     logoutButton.addEventListener("click", function (e) {
