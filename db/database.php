@@ -152,7 +152,7 @@ class DatabaseHelper
      */
     public function loadProfilePage($username)
     {
-        $query = "SELECT u.username, u.profilePicture, p.image 
+        $query = "SELECT u.username, u.profilePicture, p.image
               FROM user u
               JOIN postcard p ON u.username = p.username
               WHERE u.username = ?
