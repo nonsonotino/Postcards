@@ -155,14 +155,13 @@ class DatabaseHelper
      */
     public function loadHomePage($username)
     {
-        $query = "SELECT * " .
-            "FROM postcard " .
-            "WHERE postcard.username IN (SELECT friendship.usernameReceiver " .
-            "FROM friendship " .
-            "WHERE friendship.usernameSender = ?)";
-
-
-        $query .= "ORDER BY timestamp DESC";
+        $query = "SELECT p.timeStamp, p.location, p.image, p.caption, p.username, u.profilePicture 
+            FROM postcard p
+            JOIN user u ON p.username = u.username 
+            WHERE p.username IN (SELECT f.usernameReceiver 
+            FROM friendship f
+            WHERE f.usernameSender = ?) 
+            ORDER BY p.timestamp DESC";
 
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('s', $username);
