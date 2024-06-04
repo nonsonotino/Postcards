@@ -4,16 +4,16 @@
     </div>
     <script src="js/profile_creation.js"></script>
     <div class="post-form w-50 h-100 align-self-center overflow-scroll py-3">
-        <form id="profileCreationForm" method="POST" action="/ajax/post_creation.php" class="d-flex flex-column">
+        <form id="profileCreationForm" method="POST" action="/ajax/post_creation.php" class="d-flex flex-column align-items-center">
             <label for="image-input" class="form-label fs-5 text-primary">Choose a picture:</label>
-            <div class="bg-white p-2 selected-image border border-primary">
+            <div class="bg-white p-2 profile-edit-image border border-primary rounded-circle">
                 <img id="selectedImage" src="assets/profile_default.jpg" alt="selected image"
-                    class="postcard-image w-100">
+                    class="profile-edit-image rounded-circle w-100">
             </div>
             <input type="file" class="form-control d-none" id="profileImage" name="profileImage"
                 accept="image/jpg, image/jpeg, image/png, image/gif" />
             <span id="errorText" class="text-danger fs-7" hidden></span>
-            <button id="submit" type="submit" class="btn btn-primary mt-3 w-25 form-button align-self-end">Edit</button>
+            <button id="submit" type="submit" class="btn btn-primary mt-3 w-25 form-button">Edit</button>
         </form>
 
     </div>

@@ -206,6 +206,11 @@ p {
   aspect-ratio: 1/1;
 }
 
+.profile-edit-image {
+  width: 50%;
+  aspect-ratio: 1/1;
+}
+
 .friend-button {
   white-space: nowrap; 
   width: 150px;
