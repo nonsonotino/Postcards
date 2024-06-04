@@ -7,7 +7,7 @@ function resizeDescriptionText() {
         // Calculate new font size based on container's width and height
         const containerWidth = container.offsetWidth;
         const containerHeight = container.offsetHeight;
-        const newSize = Math.min(containerWidth, containerHeight) / 10; // Adjust the divisor for your needs
+        const newSize = Math.min(containerWidth, containerHeight) / 15; // Adjust the divisor for your needs
 
         text.style.fontSize = `${newSize}px`;
     });
@@ -23,7 +23,7 @@ function resizeInfoText() {
         const containerWidth = container.offsetWidth;
         const containerHeight = container.offsetHeight;
 
-        const newSize = Math.min(containerWidth, containerHeight) / 10; // Adjust the divisor for your needs
+        const newSize = Math.min(containerWidth, containerHeight) / 12; // Adjust the divisor for your needs
         const newSymbolSize = Math.min(containerWidth, containerHeight) / 8
 
         infoText.forEach(text=> {
