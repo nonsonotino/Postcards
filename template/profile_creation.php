@@ -19,3 +19,4 @@
     </div>
     <?php require ("footer.php") ?>
 </body>
+<script src="/Postcards/js/profile_creation.js"></script>
