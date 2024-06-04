@@ -14,12 +14,12 @@ class DatabaseHelper
     /*
      * Query to add a new user into the database  
      */
-    public function addNewUser($username, $email, $password)
+    public function addNewUser($username, $email, $password, $profilePicture)
     {
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-        $query = "INSERT INTO user (username, email, password) VALUES (?, ?, ?)";
+        $query = "INSERT INTO user (username, email, password, profilePicture) VALUES (?, ?, ?, ?)";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('sss', $username, $email, $hashedPassword);
+        $stmt->bind_param('ssss', $username, $email, $hashedPassword);
         $result = $stmt->execute();
 
         return $result;
@@ -100,7 +100,7 @@ class DatabaseHelper
     }
 
     /*
-     * Query to insert a new friendship request 
+     * Query to insert a new friendship  
      */
     public function addFriendship($usernameReceiver, $usernameSender)
     {
@@ -113,6 +113,19 @@ class DatabaseHelper
     }
 
     /*
+     * Query to remove a friendship 
+     */
+    public function removeFriendship($usernameReceiver, $usernameSender)
+    {
+        $query = "DELETE FROM friendship WHERE usernameReceiver = ? AND usernameSender = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ss', $usernameReceiver, $usernameSender);
+        $stmt->execute();
+
+        return $stmt->affected_rows;
+    }
+
+    /*
      * Query to insert a new postcard in the database
      */
     public function insertPostcard($location, $image, $caption, $username)
@@ -120,6 +133,18 @@ class DatabaseHelper
         $query = "INSERT INTO postcard (location, image, caption, username) VALUES (?, ?, ?, ?)";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('ssss', $location, $image, $caption, $username);
+        $result = $stmt->execute();
+
+        return $result;
+    }
+
+    public function insertProfilePicture($profilePicture, $username)
+    {
+        $query = "UPDATE user 
+                  SET profilePicture = ? 
+                  WHERE username = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ss', $profilePicture, $username);
         $result = $stmt->execute();
 
         return $result;

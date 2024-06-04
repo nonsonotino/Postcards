@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else if ($dbh->checkUsernameExists($username)) {
         $errorMessage = "Error! Username already in use.";
     } else {
-        $registration_result = $dbh->addNewUser($username, $email, $password);
+        $registration_result = $dbh->addNewUser($username, $email, $password, "../uploads/profile_default.jpg");
         if (!$registration_result) {
             $errorMessage = "Error while creating the account!";
         } else {

@@ -6,7 +6,7 @@
         <i class="fa-regular fa-paper-plane fa-xl"></i>
     </a>
     <a class="link-primary mr-3" href="profile.php">
-        <img src="assets/profile_default.jpg" class="footer-image  rounded-pill border border-3 border-primary"
-            alt="Immagine profilo">
+        <img src="<?= str_replace("../", "", $profile[0]["profilePicture"]); ?>"
+            class="footer-image  rounded-pill border border-3 border-primary" alt="Immagine profilo">
     </a>
 </footer>

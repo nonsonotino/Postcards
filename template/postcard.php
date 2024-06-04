@@ -1,6 +1,7 @@
 <div class="postcard bg-secondary">
   <div class="postcard-side front bg-white p-2">
-    <img class="postcard-image w-100 h-100 align-self-center" src="<?= str_replace("../", "", $postcards['image']) ?>" alt="Postcard Front">
+    <img class="postcard-image w-100 h-100 align-self-center" src="<?= str_replace("../", "", $postcards['image']) ?>"
+      alt="Postcard Front">
   </div>
   <div class="postcard-side back">
     <div class="postcard-background w-100 h-100 p-2">
@@ -14,14 +15,15 @@
 
         <div class="postcard-info d-flex align-items-start">
 
-          <img src="assets/profile_default.jpg" class="info-image  rounded-pill border border-3 border-primary ratio ratio-1x1 mb-3" alt="Immagine profilo">
+          <img src="<?= str_replace("../", "", $profile[0]["profilePicture"]); ?>"
+            class="info-image  rounded-pill border border-3 border-primary ratio ratio-1x1 mb-3" alt="Immagine profilo">
 
           <div class="d-flex flex-row justify-content-start mb-2 w-100 align-items-center">
 
-            <a class="info-symbol me-2 link-dark" href="#">
+            <a class="info-symbol me-2 link-dark" href="profile.php">
               <i class="fa-solid fa-user"></i>
             </a>
-            <a class="info-text link-dark" href="#">
+            <a class="info-text link-dark" href="profile.php">
               <?php echo htmlspecialchars($postcards['username']); ?>
             </a>
           </div>
