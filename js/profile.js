@@ -13,7 +13,6 @@ window.onload = function () {
             success: function (response) {
                 console.log(response);
                 if (response.trim() == "success") {
-                    //window.location.href = "/Postcards/profile.php";
                     console.log("Friend added");
                 } else {
                     console.log("Friend not added");
@@ -32,7 +31,6 @@ window.onload = function () {
             success: function (response) {
                 console.log(response);
                 if (response.trim() == "success") {
-                    window.location.href = "/Postcards/profile.php";
                     console.log("Friend removed");
                 } else {
                     console.log("Friend not removed");
