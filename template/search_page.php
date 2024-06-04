@@ -7,11 +7,6 @@
             type="submit">Search</button>
     </form>
     <div id="searchResult" name="searchResult" class="comments-scroll h-100 d-flex flex-column overflow-scroll h-100">
-        <!-- <?php
-        for ($i = 0; $i < 100; $i++) {
-            require ("search_profile.php");
-        }
-        ?> -->
     </div>
     <?php require ("footer.php") ?>
 </body>
