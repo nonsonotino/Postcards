@@ -1,6 +1,6 @@
 window.onload = function () {
     let form = document.getElementById("profileCreationForm");
-    let imageElement = document.getElementById("selectedImage");
+    let imageElement = document.getElementById("defaultImage");
     let inputFile = document.getElementById("profileImage");
     let errorText = document.getElementById("errorText");
 
