@@ -1,12 +1,11 @@
 <body class="bg-secondary d-flex justify-content-start flex-column">
-    <?php require("navbar.php") ?>
+    <?php require ("navbar.php") ?>
     <div class="notifications-scroll d-flex flex-column overflow-scroll h-100">
         <?php
-        for ($i = 0; $i < 100; $i++) {
-            require("notification.php");
+        foreach ($template_params["notifications"] as $notifications) {
+            require ("notification.php");
         }
         ?>
     </div>
-    <?php require("footer.php") ?>
-    
+    <?php require ("footer.php") ?>
 </body>

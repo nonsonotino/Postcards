@@ -211,9 +211,23 @@ class DatabaseHelper
      */
     public function getNotifications($username)
     {
-        $query = "SELECT username, type, timeStamp FROM notification WHERE username = ?";
+        $query = "SELECT sender, timeStamp, type FROM notification WHERE receiver = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('s', $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    /**
+     * Query to get all the usernames matching a text
+     */
+    public function searchUsers($currentUserUsername, $username)
+    {
+        $username = "%" . $username . "%";
+        $stmt = $this->db->prepare("SELECT * FROM user WHERE user.username LIKE ? AND user.username <> ? ORDER BY username");
+        $stmt->bind_param('ss', $username, $currentUserUsername);
         $stmt->execute();
         $result = $stmt->get_result();
 
