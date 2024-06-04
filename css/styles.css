@@ -87,6 +87,10 @@ p {
   display: none;
 }
 
+.postcard-profile-container::-webkit-scrollbar {
+  display: none;
+}
+
 .post-form::-webkit-scrollbar {
   display: none;
 }
@@ -94,7 +98,8 @@ p {
 .postcard-scroll,
 .notifications-scroll,
 .comments-scroll,
-.post-form {
+.post-form,
+.postcard-profile-container {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
@@ -164,6 +169,7 @@ p {
   align-self: center;
   justify-self: start;
   width: 40%;
+  aspect-ratio: 1/1;
 }
 
 .info-symbol {
@@ -197,6 +203,12 @@ p {
 
 .profile-image {
   width: 80px;
+  aspect-ratio: 1/1;
+}
+
+.friend-button {
+  white-space: nowrap; 
+  width: 150px;
 }
 
 .profile-postcard {
