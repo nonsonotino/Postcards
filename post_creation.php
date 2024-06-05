@@ -1,9 +1,6 @@
 <?php
 require_once ("bootstrap.php");
 
-$username = $_SESSION["username"];
-$profile = $dbh->getUserProfile($username);
-$template_params["profile"] = $profile;
 $template_params["title"] = "Post creation";
 $template_params["page"] = "template/post_creation.php";
 
