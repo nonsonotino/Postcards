@@ -58,7 +58,7 @@ class DatabaseHelper
      */
     public function getPostcardById($idPostCard)
     {
-        $query = "SELECT idPostCard, timeStamp as date, location, image, caption FROM postcard WHERE idPostcard=?";
+        $query = "SELECT * FROM postcard WHERE idPostcard=?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i', $idPostCard);
         $stmt->execute();
@@ -138,6 +138,9 @@ class DatabaseHelper
         return $result;
     }
 
+    /*
+     * Query to insert the profile picture of a user in the database
+     */
     public function insertProfilePicture($profilePicture, $username)
     {
         $query = "UPDATE user 
@@ -151,11 +154,24 @@ class DatabaseHelper
     }
 
     /*
+     * Query to insert a new comment in the database
+     */
+    public function insertComment($idPostCard, $text, $username)
+    {
+        $query = "INSERT INTO comment (idPostcard, text, username) VALUES (?, ?, ?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('iss', $idPostCard, $text, $username);
+        $result = $stmt->execute();
+
+        return $result;
+    }
+
+    /*
      * Query to load the home page of a user
      */
     public function loadHomePage($username)
     {
-        $query = "SELECT p.timeStamp, p.location, p.image, p.caption, p.username, u.profilePicture 
+        $query = "SELECT p.idPostCard, p.timeStamp, p.location, p.image, p.caption, p.username, u.profilePicture 
             FROM postcard p
             JOIN user u ON p.username = u.username 
             WHERE p.username IN (SELECT f.usernameReceiver 
@@ -174,14 +190,26 @@ class DatabaseHelper
     /*
      * Query to load the profile page of a user
      */
-    public function loadProfilePage($username)
+    public function getUserProfile($username)
     {
-        $query = "SELECT u.username, u.profilePicture, p.image
+        $query = "SELECT u.username, u.profilePicture
               FROM user u
-              JOIN postcard p ON u.username = p.username
-              WHERE u.username = ?
-              ORDER BY p.timestamp DESC";
+              WHERE u.username = ?";
 
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s', $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC)[0];
+    }
+
+    public function loadUserPostcards($username)
+    {
+        $query = "SELECT * 
+            FROM postcard p
+            WHERE p.username = ?
+            ORDER BY p.timeStamp DESC";
 
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('s', $username);
@@ -196,7 +224,11 @@ class DatabaseHelper
      */
     public function getComments($idPostCard)
     {
-        $query = "SELECT username, text FROM comment WHERE idPostcard = ?";
+        $query = "SELECT c.username, c.text, c.timeStamp, u.profilePicture 
+                  FROM comment c
+                  JOIN user u ON c.username = u.username
+                  WHERE idPostcard = ?
+                  ORDER BY c.timeStamp DESC";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i', $idPostCard);
         $stmt->execute();
