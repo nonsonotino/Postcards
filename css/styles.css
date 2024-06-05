@@ -67,6 +67,7 @@ p {
 
 .footer-image {
   height: 2rem;
+  aspect-ratio: 1/1;
 }
 
 .postcard-scroll {
@@ -203,6 +204,11 @@ p {
 
 .profile-image {
   width: 80px;
+  aspect-ratio: 1/1;
+}
+
+.profile-edit-image {
+  width: 50%;
   aspect-ratio: 1/1;
 }
 
