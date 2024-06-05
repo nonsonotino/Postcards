@@ -35,48 +35,35 @@ function isUserLoggedIn()
 }
 
 /**
- * Checks if the current page is active.
+ * Gives the timestamp in the correct format.
  */
-function isActive($pagename)
+function timeAgo($datetime, $full = false)
 {
-        if (basename($_SERVER['PHP_SELF']) == $pagename) {
-                echo " class='active' ";
-        }
-}
+        $now = new DateTime;
+        $ago = new DateTime($datetime);
+        $diff = $now->diff($ago);
 
-/**
- * Retrieves the previous page from session history.
- */
-function getPreviousPage()
-{
-        if (!isset($_SESSION)) {
-                session_start();
-        }
+        $diff->w = floor($diff->d / 7);
+        $diff->d -= $diff->w * 7;
 
-        if (!isset($_SESSION["history"])) {
-                $_SESSION["history"] = array();
-        }
-
-        end($_SESSION["history"]);
-        return prev($_SESSION["history"]);
-}
-
-/**
- * Updates the session history with the current page.
- * @param $pageName The name or identifier of the 
- * current page to be added to the session history
- */
-function updateHistory($pageName)
-{
-        if (!isset($_SESSION)) {
-                session_start();
+        $string = array(
+                'y' => 'year',
+                'm' => 'month',
+                'w' => 'week',
+                'd' => 'day',
+                'h' => 'hour',
+                'i' => 'minute',
+                's' => 'second',
+        );
+        foreach ($string as $k => &$v) {
+                if ($diff->$k) {
+                        $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? 's' : '');
+                } else {
+                        unset($string[$k]);
+                }
         }
 
-        if (!isset($_SESSION["history"])) {
-                $_SESSION["history"] = array();
-        }
-
-        if (end($_SESSION["history"]) != $pageName) {
-                array_push($_SESSION["history"], $pageName);
-        }
+        if (!$full)
+                $string = array_slice($string, 0, 1);
+        return $string ? implode(', ', $string) . ' ago' : 'just now';
 }
