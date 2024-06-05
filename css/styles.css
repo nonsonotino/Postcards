@@ -67,6 +67,7 @@ p {
 
 .footer-image {
   height: 2rem;
+  aspect-ratio: 1/1;
 }
 
 .postcard-scroll {
