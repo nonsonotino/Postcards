@@ -7,6 +7,6 @@
     </a>
     <a class="link-primary mr-3" href="profile.php">
         <img src="<?= str_replace("../", "", $loggedUser["profilePicture"]); ?>"
-            class="footer-image rounded-pill border border-3 border-primary" alt="Immagine profilo">
+            class="footer-image rounded-pill border border-3 border-primary" alt="Profile picture">
     </a>
 </footer>
