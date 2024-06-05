@@ -8,8 +8,14 @@ if (!isset($_SESSION)) {
     session_start();
 }
 
-if (!isUserLoggedIn() && basename($_SERVER['PHP_SELF']) !== 'login.php') {
+if (
+    !isUserLoggedIn() && basename($_SERVER['PHP_SELF']) !== 'login.php' &&
+    basename($_SERVER['PHP_SELF']) !== 'signup.php'
+) {
     header("Location: login.php");
     exit();
+} elseif (isUserLoggedIn()) {
+    $username = $_SESSION["username"];
+    $loggedUser = $dbh->getUserProfile($username);
 }
 ?>
