@@ -1,9 +1,9 @@
 <header
     class="d-flex flex-row m-3 mt-0 mb-0 pt-4 pb-3 border-bottom border-primary border-3 border-primary bg-secondary justify-content-around">
     <div class="d-flex flex-column">
-        <img src="<?= str_replace("../", "", $profile[0]["profilePicture"]); ?>" alt="Immagine profilo"
+        <img src="<?= str_replace("../", "", $profile["profilePicture"]); ?>" alt="Immagine profilo"
             class=" profile-image rounded-pill border border-4 border-primary ratio ratio-1x1 mb-1 mt-1">
-        <p class="text-center"><?php echo $_SESSION["username"] ?></p>
+        <p class="text-center"><?php echo $profile["username"] ?></p>
     </div>
     <div class="d-flex flex-column align-items-center">
         <p class="m-0"><?php echo $profile["friends"] ?></p>

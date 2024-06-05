@@ -3,7 +3,7 @@
     <div class="postcard-profile-container h-100 d-flex flex-wrap justify-content-center overflow-scroll
     ">
         <?php
-        foreach ($template_params["profile"] as $postcards) {
+        foreach ($postcards as $postcard) {
             require ("profile_postcard.php");
         }
         ?>
