@@ -100,6 +100,24 @@ class DatabaseHelper
     }
 
     /*
+     * Query to select all the penfriends followed by a user 
+     */
+    public function getPenfriendsFollowed($username)
+    {
+        $query = "SELECT COUNT(usernameReceiver) as penFriendsFollowed " .
+            " FROM friendship " .
+            " WHERE usernameSender = ? " .
+            " GROUP BY usernameReceiver";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s', $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    /*
      * Query to insert a new friendship  
      */
     public function addFriendship($usernameReceiver, $usernameSender)
@@ -154,13 +172,41 @@ class DatabaseHelper
     }
 
     /*
+     * Query to check if a user is the owner of a comment
+     */
+    public function isCommentOwner($commentId, $username)
+    {
+        $query = "SELECT COUNT(*) as count FROM comment WHERE idComment = ? AND username = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('is', $commentId, $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+
+        return $row['count'] > 0;
+    }
+
+    /*
      * Query to insert a new comment in the database
      */
-    public function insertComment($idPostCard, $text, $username)
+    public function addComment($idPostCard, $text, $username)
     {
         $query = "INSERT INTO comment (idPostcard, text, username) VALUES (?, ?, ?)";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('iss', $idPostCard, $text, $username);
+        $result = $stmt->execute();
+
+        return $result;
+    }
+
+    /*
+     * Query to remove a comment from the database
+     */
+    public function deleteComment($commentId)
+    {
+        $query = "DELETE FROM comment WHERE idComment = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i', $commentId);
         $result = $stmt->execute();
 
         return $result;
@@ -224,7 +270,7 @@ class DatabaseHelper
      */
     public function getComments($idPostCard)
     {
-        $query = "SELECT c.username, c.text, c.timeStamp, u.profilePicture 
+        $query = "SELECT c.idComment, c.username, c.text, c.timeStamp, u.profilePicture 
                   FROM comment c
                   JOIN user u ON c.username = u.username
                   WHERE idPostcard = ?

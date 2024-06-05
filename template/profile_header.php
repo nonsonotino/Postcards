@@ -7,7 +7,9 @@
     </div>
     <div class="d-flex flex-column align-items-center">
         <p class="m-0"><?php echo $profile["friends"] ?></p>
-        <p class="mb-2">penfriends</p>
+        <p class="mb-2">penfriends you have</p>
+        <p class="m-0"><?php echo $profile["friendsFollowed"] ?></p>
+        <p class="mb-2">penfriends you follow</p>
         <button id="editProfile" class="friend-button btn btn-primary btn-sm">edit your profile</button>
         <button id="removeFromFriends"
             class="friend-button btn btn-primary btn-sm bg-secondary text-dark border-2 border-primary" hidden>remove
