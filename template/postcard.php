@@ -14,13 +14,12 @@
         </div>
 
         <div class="postcard-info d-flex align-items-start">
-
-          <img src="<?= str_replace("../", "", $postcard['profilePicture']); ?>"
-            class="info-image  rounded-pill border border-3 border-primary ratio ratio-1x1 mb-3" alt="Immagine profilo">
-
+          <a href="profile.php?username=<?= $postcard['username'] ?>">
+            <img src="<?= str_replace("../", "", $postcard['profilePicture']); ?>"
+              class="info-image  rounded-pill border border-3 border-primary ratio ratio-1x1 mb-3"
+              alt="Profile picture"></a>
           <div class="d-flex flex-row justify-content-start mb-2 w-100 align-items-center">
-
-            <a class="info-symbol me-2 link-dark" href="profile.php">
+            <a class="info-symbol me-2 link-dark" href="profile.php?username=<?= $postcard['username'] ?>">
               <i class="fa-solid fa-user"></i>
             </a>
             <a class="info-text link-dark" href="profile.php?username=<?= $postcard['username'] ?>">
