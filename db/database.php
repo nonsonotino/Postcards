@@ -155,14 +155,13 @@ class DatabaseHelper
      */
     public function loadHomePage($username)
     {
-        $query = "SELECT * " .
-            "FROM postcard " .
-            "WHERE postcard.username IN (SELECT friendship.usernameReceiver " .
-            "FROM friendship " .
-            "WHERE friendship.usernameSender = ?)";
-
-
-        $query .= "ORDER BY timestamp DESC";
+        $query = "SELECT p.timeStamp, p.location, p.image, p.caption, p.username, u.profilePicture 
+            FROM postcard p
+            JOIN user u ON p.username = u.username 
+            WHERE p.username IN (SELECT f.usernameReceiver 
+            FROM friendship f
+            WHERE f.usernameSender = ?) 
+            ORDER BY p.timestamp DESC";
 
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('s', $username);
@@ -212,9 +211,23 @@ class DatabaseHelper
      */
     public function getNotifications($username)
     {
-        $query = "SELECT username, type, timeStamp FROM notification WHERE username = ?";
+        $query = "SELECT sender, timeStamp, type FROM notification WHERE receiver = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('s', $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    /**
+     * Query to get all the usernames matching a text
+     */
+    public function searchUsers($currentUserUsername, $username)
+    {
+        $username = "%" . $username . "%";
+        $stmt = $this->db->prepare("SELECT * FROM user WHERE user.username LIKE ? AND user.username <> ? ORDER BY username");
+        $stmt->bind_param('ss', $username, $currentUserUsername);
         $stmt->execute();
         $result = $stmt->get_result();
 

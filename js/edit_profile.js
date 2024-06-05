@@ -1,6 +1,6 @@
 window.onload = function () {
-    let form = document.getElementById("profileCreationForm");
-    let imageElement = document.getElementById("selectedImage");
+    let form = document.getElementById("editProfileForm");
+    let imageElement = document.getElementById("defaultImage");
     let inputFile = document.getElementById("profileImage");
     let errorText = document.getElementById("errorText");
 
@@ -40,7 +40,7 @@ window.onload = function () {
         if (validateForm()) {
             let formData = new FormData(this);
             $.ajax({
-                url: "ajax/profile_creation.php",
+                url: "ajax/edit_profile.php",
                 type: "POST",
                 data: formData,
                 processData: false,

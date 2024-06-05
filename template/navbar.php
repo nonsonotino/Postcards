@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-secondary bg-primary container-fluid py-4 d-flex justify-content-between">
-    <a class="link-secondary notification-bell" href="notifications.php">
+    <a id="notificationsButton" class="link-secondary notification-bell" href="notifications.php">
         <i class="fa-regular fa-bell fa-xl"></i>
         <span class="notification-badge bg-danger">2</span>
     </a>
@@ -8,7 +8,7 @@
     </div>
     <form class="d-flex flex-line">
         <a href="search.php" class="link-secondary">
-            <i class="fa-solid fa-magnifying-glass fa-xl"></i></i>
+            <i class="fa-solid fa-magnifying-glass fa-xl"></i>
         </a>
     </form>
 </nav>

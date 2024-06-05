@@ -7,7 +7,7 @@
             require ("profile_postcard.php");
         }
         ?>
-        
+
     </div>
 
     <?php require ("footer.php") ?>

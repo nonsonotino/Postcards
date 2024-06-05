@@ -15,7 +15,7 @@
 
         <div class="postcard-info d-flex align-items-start">
 
-          <img src="<?= str_replace("../", "", $profile[0]["profilePicture"]); ?>"
+          <img src="<?= str_replace("../", "", $postcards['profilePicture']); ?>"
             class="info-image  rounded-pill border border-3 border-primary ratio ratio-1x1 mb-3" alt="Immagine profilo">
 
           <div class="d-flex flex-row justify-content-start mb-2 w-100 align-items-center">
@@ -32,7 +32,7 @@
             <div class="info-symbol me-2 link-dark">
               <i class="fa-solid fa-location-dot"></i>
             </div>
-            <p class="info-text link-dark" href="#">
+            <p class="info-text link-dark">
               <?php echo htmlspecialchars($postcards['location']); ?>
             </p>
           </div>
