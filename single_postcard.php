@@ -8,8 +8,7 @@ if (isset($_GET["username"])) {
     $profile = $loggedUser;
 }
 
-// TODO capire come passare l'id del postcard
-$postcard = $dbh->getPostcardById(20);
+$postcard = $dbh->getPostcardById($_GET["postcardId"]);
 
 $template_params["title"] = "Home";
 $template_params["page"] = "template/single_postcard.php";
