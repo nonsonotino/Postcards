@@ -7,7 +7,7 @@
                 class="footer-image  rounded-pill border border-3 border-primary" alt="Profile picture">
         </a>
         <div class="d-flex flex-column">
-            <input type="hidden" id="postcardID" name="username" value="<?php echo $postcardId ?>" />
+            <input type="hidden" id="postcardId" name="username" value="<?php echo $postcardId ?>" />
             <input type="hidden" id="commentUsername" name="commentUsername"
                 value="<?php echo $comment["username"] ?>" />
             <a href="profile.php?username=<?= $comment["username"] ?>"
@@ -18,7 +18,10 @@
         </div>
     </div>
     <div class="align-self-end">
-        <button class="btn btn-danger" id="deleteCommentButton" name="deleteCommentButton" hidden>Delete</button>
+        <?php if ($_SESSION['username'] == $comment['username']): ?>
+            <button class="btn btn-danger deleteCommentButton"
+                data-comment-id="<?= $comment['idComment']; ?>">Delete</button>
+        <?php endif; ?>
         <p class="m-0 fs-6 fw-light align-self-end">
             <?= timeAgo($comment["timeStamp"]) ?>
         </p>
