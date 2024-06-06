@@ -28,12 +28,19 @@ create table COMMENT (
      idPostCard int not null,
      constraint IDCOMMENT primary key (idComment));
 
-create table NOTIFICATION (
-     idNotification int not null AUTO_INCREMENT,
-     timeStamp date not null default CURRENT_TIMESTAMP,
-     type int not null,
-     username char(20) not null,
-     constraint IDNOTIFICATION primary key (idNotification));
+create table if not exists NOTIFICATION (
+    id INT NOT NULL AUTO_INCREMENT,
+    timeStamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    type INT NOT NULL CHECK (type IN (1, 2, 3)),
+    readState BOOLEAN NOT NULL DEFAULT FALSE,
+    sender VARCHAR(25) NOT NULL,
+    receiver VARCHAR(25) NOT NULL,
+    postcardId INT,
+    PRIMARY KEY (id),
+    CONSTRAINT REF_NOTIF_SENDER_FK FOREIGN KEY (sender) REFERENCES USER(username) ON DELETE CASCADE,
+    CONSTRAINT REF_NOTIF_RECEIVER_FK FOREIGN KEY (receiver) REFERENCES USER(username) ON DELETE CASCADE,
+    CONSTRAINT REF_NOTIF_POST_FK FOREIGN KEY (postcardId) REFERENCES POSTCARD(idPostCard) ON DELETE CASCADE
+);
 
 create table FRIENDSHIP (
      usernameReceiver char(20) not null,

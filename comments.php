@@ -2,6 +2,7 @@
 require_once ("bootstrap.php");
 
 if (isset($_GET["postcardId"])) {
+    $postcardId = $_GET["postcardId"];
     $comments = $dbh->getComments($_GET["postcardId"]);
     $template_params["comments"] = $comments;
 } else {
