@@ -8,10 +8,14 @@
     <input type="hidden" id="profileUsername" name="profileUsername" value="<?php echo $profile["username"] ?>" />
     <input type="hidden" id="currentUsername" name="currentUsername" value="<?php echo $_SESSION["username"] ?>" />
     <div class="d-flex flex-column align-items-center">
-        <p id="friends" class="m-0"><?php echo $profile["friends"] ?></p>
-        <p id="labelFriends" class="mb-2">penfriends you have</p>
-        <p id="friendsFollowed" class="m-0"><?php echo $profile["friendsFollowed"] ?></p>
-        <p id="labelFriendsFollowed" class="mb-2">penfriends you follow</p>
+        <div class="d-flex flex-column align-items-center">
+            <p id="friends" class="m-0"><?php echo $profile["friends"] ?></p>
+            <p id="labelFriends" class="mb-2">followers</p>
+        </div>
+        <div class="d-flex flex-column align-items-center me-3">
+            <p id="friendsFollowed" class="m-0"><?php echo $profile["friendsFollowed"] ?></p>
+            <p id="labelFriendsFollowed" class="mb-2">following</p>
+        </div>
         <?php if ($profile["username"] == $_SESSION["username"]): ?>
             <button id="editProfile" class="friend-button btn btn-primary btn-sm">edit your profile</button>
         <?php else: ?>

@@ -16,7 +16,7 @@
     </div>
     <input type="hidden" id="postcardId" value="<?php echo $postcardId ?>" />
     <input type="hidden" id="sessionUsername" value="<?php echo $_SESSION["username"]; ?>" />
-    <span id="errorText" class="text-danger fs-7" hidden></span>
+    <span id="errorText" class="align-self-center text-danger fs-7" hidden></span>
     <form id="commentForm" class="d-flex flex-cloumn p-2 border-top border-2 border-primary mx-3">
         <input id="commentContent" name="commentContent"
             class="form-control bg-secondary border border-1 border-primary me-2" type="text"
