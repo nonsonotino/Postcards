@@ -5,8 +5,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["commentContent"]) && i
     $commentContent = filter_input(INPUT_POST, "commentContent", FILTER_SANITIZE_SPECIAL_CHARS);
     $idPostCard = $_POST["postcardId"];
     $username = $_SESSION["username"];
+    $postcard = $dbh->getPostcardById($idPostCard);
 
     if ($dbh->addComment($idPostCard, $commentContent, $username)) {
+        $dbh->addNotification($idPostCard, false, $postcard["username"], $username, 2);
         echo "success";
     } else {
         $errorMessage = "Error! Your comment could not be posted.";
