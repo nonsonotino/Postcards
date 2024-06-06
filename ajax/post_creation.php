@@ -3,10 +3,10 @@ require_once ("../bootstrap.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    if (isset($_POST['description']) && isset($_POST['location'])) {
+    if (isset($_POST["description"]) && isset($_POST["location"])) {
 
-        if (isset($_FILES['postImage']) && $_FILES['postImage']['error'] == UPLOAD_ERR_OK) {
-            $image = $_FILES['postImage'];
+        if (isset($_FILES["postImage"]) && $_FILES["postImage"]["error"] == UPLOAD_ERR_OK) {
+            $image = $_FILES["postImage"];
             $description = filter_input(INPUT_POST, "description", FILTER_SANITIZE_SPECIAL_CHARS);
             $location = filter_input(INPUT_POST, "location", FILTER_SANITIZE_SPECIAL_CHARS);
 
@@ -14,8 +14,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $targetFile = $targetDir . time() . basename($image["name"]);
             $uploadOk = 1;
             $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
-
             $check = getimagesize($image["tmp_name"]);
+
             if ($check !== false) {
                 $uploadOk = 1;
             } else {
@@ -36,13 +36,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($uploadOk == 0) {
                 $errorMessage = "Sorry, your file was not uploaded.";
             } else {
+                if (strlen($description) > 400) {
+                    $errorMessage = "Description must be less than 400 characters.";
+                }
                 if (move_uploaded_file($image["tmp_name"], $targetFile)) {
                     $username = $_SESSION['username'];
 
                     if ($dbh->insertPostcard($location, $targetFile, $description, $username)) {
                         echo "success";
                     } else {
-                        $errorMessage = "Error while creating the postcard.";
+                        $errorMessage = "Sorry, there was an error while creating the postcard.";
                     }
 
                 } else {

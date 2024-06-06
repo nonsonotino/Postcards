@@ -7,7 +7,6 @@ if (isset($_GET["postcardId"])) {
     $template_params["comments"] = $comments;
 } else {
     $template_params["comments"] = null;
-
 }
 
 $template_params["title"] = "Comments";

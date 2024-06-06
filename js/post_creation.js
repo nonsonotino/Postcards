@@ -17,6 +17,11 @@ window.onload = function () {
             return false;
         }
 
+        if (descriptionInput.value.trim().length > 400) {
+            showMessage("Description must be less than 400 characters.");
+            return false;
+        }
+
         if (locationInput.value.trim() === "") {
             showMessage("Please enter your location.");
             return false;
@@ -59,9 +64,11 @@ window.onload = function () {
                 processData: false,
                 contentType: false,
                 success: function (response) {
+                    console.log("Server response:", response);
                     if (response.trim() == "success") {
                         window.location.href = "/Postcards/profile.php";
                     } else {
+                        console.log(data);
                         let data = JSON.parse(response);
                         console.log(data);
                         showMessage(data.error);
