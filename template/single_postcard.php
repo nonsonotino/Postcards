@@ -4,7 +4,7 @@
             <i class="fa-solid fa-arrow-left fs-1"></i>
         </a>
     </div>
-    <div class="d-flex align-items-center justify-content-center">
+    <div class="d-flex align-items-center justify-content-center h-100 mx-3">
         <?php require ("postcard.php") ?>
     </div>
     <?php require ("footer.php") ?>
