@@ -68,20 +68,6 @@ class DatabaseHelper
     }
 
     /*
-     * Query to search an user by his username 
-     */
-    public function getUserByUsername($username)
-    {
-        $query = "SELECT username, profilePicture FROM user WHERE username = ?";
-        $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ss', $username);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
-
-    /*
      * Query to select all the penfriends of a user 
      */
     public function getPenfriends($username)
@@ -140,7 +126,22 @@ class DatabaseHelper
         $stmt->bind_param('ss', $usernameReceiver, $usernameSender);
         $stmt->execute();
 
-        return $stmt->affected_rows;
+        return $stmt->affected_rows > 0;
+    }
+
+    /*
+     * Query to check if two users are friends
+     */
+    public function checkFriendship($usernameReceiver, $usernameSender)
+    {
+        $query = "SELECT COUNT(*) as count FROM friendship WHERE usernameReceiver = ? AND usernameSender = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ss', $usernameReceiver, $usernameSender);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+
+        return $row['count'] > 0;
     }
 
     /*
@@ -151,6 +152,19 @@ class DatabaseHelper
         $query = "INSERT INTO postcard (location, image, caption, username) VALUES (?, ?, ?, ?)";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('ssss', $location, $image, $caption, $username);
+        $result = $stmt->execute();
+
+        return $result;
+    }
+
+    /*
+     * Query to delete a postcard from the database
+     */
+    public function deletePostcard($idPostCard)
+    {
+        $query = "DELETE FROM postcard WHERE idPostcard = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i', $idPostCard);
         $result = $stmt->execute();
 
         return $result;
@@ -207,6 +221,32 @@ class DatabaseHelper
         $query = "DELETE FROM comment WHERE idComment = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('i', $commentId);
+        $result = $stmt->execute();
+
+        return $result;
+    }
+
+    /*
+     * Query to remove all comments of a postcard from the database
+     */
+    public function deleteAllComments($idPostCard)
+    {
+        $query = "DELETE FROM comment WHERE idPostcard = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i', $idPostCard);
+        $result = $stmt->execute();
+
+        return $result;
+    }
+
+    /*
+     * Query to remove a notification from the database
+     */
+    public function deleteNotification($notificationId)
+    {
+        $query = "DELETE FROM notification WHERE id = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('i', $notificationId);
         $result = $stmt->execute();
 
         return $result;
@@ -289,13 +329,55 @@ class DatabaseHelper
      */
     public function getNotifications($username)
     {
-        $query = "SELECT sender, timeStamp, type FROM notification WHERE receiver = ?";
+        $query = "SELECT * 
+                  FROM notification 
+                  WHERE receiver = ?
+                  ORDER BY timeStamp DESC";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('s', $username);
         $stmt->execute();
         $result = $stmt->get_result();
 
         return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    /*
+     * Query to add a notification
+     */
+    public function addNotification($postcardId, $readState, $receiver, $sender, $type)
+    {
+        $query = "INSERT into notification (postcardId, readState, receiver, sender, type) VALUES (?, ?, ?, ?, ?);";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('iissi', $postcardId, $readState, $receiver, $sender, $type);
+        $result = $stmt->execute();
+
+        return $result;
+    }
+
+    /**
+     * Get the number of new notifications for a user
+     */
+    public function getNewNotificationNumber($username)
+    {
+        $stmt = $this->db->prepare("SELECT * FROM notification WHERE notification.readState = 0 AND notification.receiver = ?");
+        $stmt->bind_param('s', $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return mysqli_num_rows($result);
+    }
+
+    /**
+     * Read all user notifications
+     */
+    public function readAllNotifications($username)
+    {
+        $stmt = $this->db->prepare("UPDATE notification SET notification.readState = 1 WHERE notification.receiver = ?");
+        $stmt->bind_param('s', $username);
+        $stmt->execute();
+        $result = $stmt->execute();
+
+        return $result;
     }
 
     /**
