@@ -3,6 +3,7 @@ require_once ("bootstrap.php");
 
 $username = $_SESSION["username"];
 $notifications = $dbh->getNotifications($username);
+$dbh->readAllNotifications($username);
 
 $template_params["title"] = "Notifications";
 $template_params["page"] = "notifications_page.php";
