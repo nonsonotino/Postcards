@@ -7,11 +7,15 @@
     </div>
     <div id="commentsDisplay" class="comments-scroll h-100 d-flex flex-column overflow-scroll h-100">
         <?php
-        foreach ($template_params["comments"] as $comment) {
-            require ("comment.php");
+        if ($template_params["comments"] != null) {
+            foreach ($template_params["comments"] as $comment) {
+                require ("comment.php");
+            }
         }
         ?>
     </div>
+    <input type="hidden" id="postcardId" value="<?php echo $postcardId ?>" />
+    <span id="errorText" class="text-danger fs-7" hidden></span>
     <form id="commentForm" class="d-flex flex-cloumn p-2 border-top border-2 border-primary mx-3">
         <input id="commentContent" name="commentContent"
             class="form-control bg-secondary border border-1 border-primary me-2" type="text"
@@ -21,3 +25,4 @@
     </form>
     <?php require ("footer.php") ?>
 </body>
+<script src="/Postcards/js/comments.js"></script>
