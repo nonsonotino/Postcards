@@ -19,7 +19,7 @@ class DatabaseHelper
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
         $query = "INSERT INTO user (username, email, password, profilePicture) VALUES (?, ?, ?, ?)";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ssss', $username, $email, $hashedPassword);
+        $stmt->bind_param('ssss', $username, $email, $hashedPassword, $profilePicture);
         $result = $stmt->execute();
 
         return $result;
@@ -263,7 +263,7 @@ class DatabaseHelper
             WHERE p.username IN (SELECT f.usernameReceiver 
             FROM friendship f
             WHERE f.usernameSender = ?) 
-            ORDER BY p.timestamp DESC";
+            ORDER BY p.idPostCard DESC";
 
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('s', $username);
@@ -290,12 +290,15 @@ class DatabaseHelper
         return $result->fetch_all(MYSQLI_ASSOC)[0];
     }
 
+    /*
+     * Query to load all the postcards of a user
+     */
     public function loadUserPostcards($username)
     {
         $query = "SELECT * 
             FROM postcard p
             WHERE p.username = ?
-            ORDER BY p.timeStamp DESC";
+            ORDER BY p.idPostCard DESC";
 
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('s', $username);
