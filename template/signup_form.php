@@ -19,7 +19,7 @@
                     id="confirm_password" name="confirm_password" type="password" placeholder="Confirm your password"
                     maxlength="20" required>
             </div>
-            <span id="errorText" class="text-danger fs-7" hidden></span>
+            <span id="errorText" class="text-warning fs-7" hidden></span>
             <div class="d-flex justify-content-end">
                 <input id="submit" class="button rounded-pill btn btn-secondary text-primary" type="submit"
                     value="Sign in">
