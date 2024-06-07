@@ -12,7 +12,8 @@ p {
   margin: 0;
 }
 
-.text-danger, .text-warning {
+.text-danger,
+.text-warning {
   font-weight: bold;
 }
 
@@ -29,7 +30,8 @@ p {
 }
 
 .date,
-.comments-title, .creation-title {
+.comments-title,
+.creation-title {
   font-family: 'DM Serif Display', serif;
 }
 
@@ -216,7 +218,7 @@ p {
 }
 
 .friend-button {
-  white-space: nowrap; 
+  white-space: nowrap;
   width: 150px;
 }
 
@@ -250,7 +252,7 @@ p {
 
 @media (orientation: portrait) {
   .post-form {
-    width: 90% !important;  
+    width: 90% !important;
   }
 
   .form-button {
