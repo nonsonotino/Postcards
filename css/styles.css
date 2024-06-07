@@ -12,6 +12,11 @@ p {
   margin: 0;
 }
 
+.text-danger,
+.text-warning {
+  font-weight: bold;
+}
+
 .signup-form,
 .login-form {
   padding-top: 15vh;
@@ -25,7 +30,8 @@ p {
 }
 
 .date,
-.comments-title, .creation-title {
+.comments-title,
+.creation-title {
   font-family: 'DM Serif Display', serif;
 }
 
@@ -146,10 +152,9 @@ p {
 }
 
 .postcard-description {
-  font-family: 'Grape Nuts', serif;
+  font-family: 'Times New Roman', Times, serif;
   width: 60%;
   font-size: 1rem;
-
 }
 
 .description-text {
@@ -213,7 +218,7 @@ p {
 }
 
 .friend-button {
-  white-space: nowrap; 
+  white-space: nowrap;
   width: 150px;
 }
 
@@ -247,7 +252,7 @@ p {
 
 @media (orientation: portrait) {
   .post-form {
-    width: 90% !important;  
+    width: 90% !important;
   }
 
   .form-button {
