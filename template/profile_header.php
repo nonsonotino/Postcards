@@ -15,7 +15,7 @@
     <input type="hidden" id="profileUsername" name="profileUsername" value="<?php echo $profile["username"] ?>" />
     <input type="hidden" id="currentUsername" name="currentUsername" value="<?php echo $_SESSION["username"] ?>" />
     <div class="d-flex flex-column align-items-center">
-        <div class="d-flex flex-row align-items-center">
+        <div class="d-flex flex-row align-items-center mt-2">
             <div class="d-flex flex-column align-items-center me-3">
                 <p id="friends" class="m-0"><?php echo $profile["friends"] ?></p>
                 <p id="labelFriends" class="mb-2">followers</p>
