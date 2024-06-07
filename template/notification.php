@@ -1,5 +1,7 @@
 <div
-    class="d-flex flex-row border-bottom border-2 border-primary p-2 justify-content-start align-items-center mx-3 py-2">
+    class="d-flex flex-column border-bottom border-2 border-primary p-2 justify-content-start align-items-center mx-3 py-2">
+
+    <div class="d-flex flex-row align-self-start">
     <?php
     $userProfile = $dbh->getUserProfile($notification["sender"]);
     ?>
@@ -24,6 +26,8 @@
         }
         ?>
     </p>
+
+    </div>
     <p class="m-0 fs-6 fw-light align-self-end">
         <?= timeAgo($notification["timeStamp"]) ?>
     </p>
