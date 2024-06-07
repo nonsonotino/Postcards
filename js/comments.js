@@ -3,6 +3,7 @@ window.onload = function () {
     let commentContent = document.getElementById("commentContent");
     let errorText = document.getElementById("errorText");
     let postcardId = document.getElementById("postcardId");
+    let arrowBack = document.getElementById("arrowBack");
 
     let showMessage = function (message) {
         errorText.hidden = false;
@@ -52,5 +53,10 @@ window.onload = function () {
                 });
             }
         });
+    });
+
+    arrowBack.addEventListener("click", function (e) {
+        e.preventDefault();
+        history.back();
     });
 };
