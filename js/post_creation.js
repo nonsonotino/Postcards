@@ -64,13 +64,10 @@ window.onload = function () {
                 processData: false,
                 contentType: false,
                 success: function (response) {
-                    console.log("Server response:", response);
                     if (response.trim() == "success") {
                         window.location.href = "/Postcards/profile.php";
                     } else {
-                        console.log(data);
                         let data = JSON.parse(response);
-                        console.log(data);
                         showMessage(data.error);
                     }
                 }

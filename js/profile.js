@@ -21,7 +21,6 @@ window.onload = function () {
 
         logoutButton.addEventListener("click", function (e) {
             e.preventDefault();
-            console.log("Logging out");
             if (confirm("Are you sure you want to logout?")) {
                 $.ajax({
                     url: "ajax/logout.php",
@@ -30,7 +29,6 @@ window.onload = function () {
                         if (response.trim() == "success") {
                             window.location.href = "/Postcards/login.php";
                         } else {
-                            console.log("Logout failed");
                             let data = JSON.parse(response);
                             showMessage(data.error);
                         }
@@ -47,14 +45,11 @@ window.onload = function () {
                 type: "POST",
                 data: { "profileUser": profileUser, "currentUser": currentUser },
                 success: function (response) {
-                    console.log(response);
                     if (response.trim() == "success") {
-                        console.log("Friend added");
                         addButton.hidden = true;
                         removeButton.hidden = false;
                         window.location.reload();
                     } else {
-                        console.log("Friend not added");
                         let data = JSON.parse(response);
                         showMessage(data.error);
                     }
@@ -71,14 +66,11 @@ window.onload = function () {
                 type: "POST",
                 data: { "profileUser": profileUser, "currentUser": currentUser },
                 success: function (response) {
-                    console.log(response);
                     if (response.trim() == "success") {
-                        console.log("Friend removed");
                         removeButton.hidden = true;
                         addButton.hidden = false;
                         window.location.reload();
                     } else {
-                        console.log("Friend not removed");
                         let data = JSON.parse(response);
                         showMessage(data.error);
                     }

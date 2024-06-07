@@ -50,7 +50,6 @@ window.onload = function () {
                         window.location.href = "/Postcards/profile.php";
                     } else {
                         let data = JSON.parse(response);
-                        console.log(data);
                         showMessage(data.error);
                     }
                 }

@@ -56,7 +56,6 @@ window.onload = function () {
                     if (response.trim() == "success") {
                         window.location.href = "/Postcards/home.php";
                     } else {
-                        console.log("signup failed");
                         let data = JSON.parse(response);
                         showMessage(data.error);
                     }

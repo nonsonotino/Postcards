@@ -22,7 +22,6 @@ window.onload = function () {
                         commentContent.value = "";
                         window.location.reload();
                     } else {
-                        console.log("Failed to add comment.");
                         let data = JSON.parse(response);
                         showMessage(data.error);
                     }
